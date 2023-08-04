@@ -13,12 +13,13 @@ const MainNavigation = (props) => {
   return (
     <React.Fragment>
       <Header>
-        <h1 className="main-navigation__title">
+        <div className="main-navigation__title">
           <Link to="/">
-            <FontAwesomeIcon icon={faStackOverflow} size="1.5x" />
-            <div className="main-navigation__title a">csit overflow</div>
+            <FontAwesomeIcon icon={faStackOverflow} size="3x" />
+            <div className="small-title">csit</div>
+            <div className="big-title">overflow</div>
           </Link>
-        </h1>
+        </div>
         {/* <nav className="main-navigation__header-nav">
           <NavLinks />
         </nav> */}
