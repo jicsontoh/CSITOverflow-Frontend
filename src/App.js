@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import HomePage from "./shared/pages/HomePage";
+// import Header from "./shared/components/Header";
 import MainNavigation from "./shared/components/MainNavigation";
 
 function App() {

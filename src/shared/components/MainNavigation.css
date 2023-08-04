@@ -19,11 +19,14 @@
   
   .main-navigation__title {
     color: white;
+    display: inline;
+    
   }
   
   .main-navigation__title a {
     text-decoration: none;
     color: white;
+    display: inline;
   }
   
   .main-navigation__header-nav {
