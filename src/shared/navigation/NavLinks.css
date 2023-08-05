@@ -65,9 +65,9 @@
     border-radius: 6px;
   }
   
-  .nav-links-login-button a:hover,
-  .nav-links-login-button a:active {
-    background: #dddfe2;
+  .nav-links-login-button:hover,
+  .nav-links-login-button:active {
+    background: #0481f5;
     color: white;
   }
 
@@ -84,7 +84,7 @@
     color: white;
   }
 
-  .nav-links button {
+  /* .nav-links button {
     border: transparent;
     color: white;
     background: #0063bf;
@@ -95,5 +95,5 @@
   .nav-links button:active {
     background: #044e94;
     color: white;
-  }
+  } */
 }
