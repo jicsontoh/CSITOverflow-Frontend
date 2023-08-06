@@ -3,6 +3,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStackOverflow } from "@fortawesome/fontawesome-free-brands";
+import { ReactComponent as Search } from "../../assets/Search.svg";
 
 import NavLinks from "../navigation/NavLink";
 import Header from "./Header";
@@ -25,20 +26,21 @@ const MainNavigation = (props) => {
           </Link>
         </div>
         <form
-          //   id="search"
+          id="search"
           onSubmit={search}
-          className={`grid--cell fl-grow1 searchbar px12 js-searchbar`}
+          className={`fl-grow1 searchbar px12 js-searchbar`}
           autoComplete="off"
         >
           <div className="ps-relative search-frame">
             <input
-              className="s-input s-input__search h100 search-box"
+              className="s-input"
               autoComplete="off"
               type="text"
               name="search"
               maxLength="35"
               placeholder="Search..."
             />
+            <Search />
           </div>
         </form>
         <nav className="main-navigation__header-nav">
