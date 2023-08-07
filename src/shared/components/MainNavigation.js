@@ -33,14 +33,14 @@ const MainNavigation = (props) => {
         >
           <div className="ps-relative search-frame">
             <input
-              className="s-input"
+              className="search"
               autoComplete="off"
               type="text"
               name="search"
               maxLength="35"
               placeholder="Search..."
             />
-            <Search />
+            {/* <Search /> */}
           </div>
         </form>
         <nav className="main-navigation__header-nav">

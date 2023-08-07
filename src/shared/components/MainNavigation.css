@@ -52,17 +52,11 @@
   }
 }
 
-
-.s-input {
-  margin-bottom: 1rem;
-  color: #404345;
-}
-
-.s-input__search{
-  margin-top: 10px;
-}
-.s-input-icon {
-  margin-top: -2px;
+.search {
+  background-color: #404345;
+  width: 220px;
+  box-shadow: 1px 1px 1px px gray;
+  
 }
 
 .search-frame {
@@ -70,7 +64,7 @@
   float: right;
 }
 
-.search-box:focus {
+.search:focus {
   border-color: #2b5f8a;
   box-shadow: 0 0 0 4px #378ad326;
   color: #fff;
