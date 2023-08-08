@@ -23,15 +23,15 @@
 .small-title {
     color: rgb(189, 188, 188);
     padding-left: 3%;
-    padding-top: 8%;
-    font-size: 1.7rem;
-    font-weight: 1;
+    padding-top: 7%;
+    font-size: 1.8rem;
+    font-weight: 300;
 
 }
 
 .big-title {
     color: white;
-    padding-left: 3%;
+    padding-left: 2.5%;
     padding-top: 6%;
     font-size: 2rem;
     font-weight: bold;
