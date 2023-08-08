@@ -28,10 +28,11 @@ const MainNavigation = (props) => {
         <form
           id="search"
           onSubmit={search}
-          className={`fl-grow1 searchbar px12 js-searchbar`}
+          className={`searchbar`}
           autoComplete="off"
         >
-          <div className="ps-relative search-frame">
+          <div className="search-frame">
+            <Search className="search-icon" />
             <input
               className="search"
               autoComplete="off"
@@ -40,7 +41,6 @@ const MainNavigation = (props) => {
               maxLength="35"
               placeholder="Search..."
             />
-            {/* <Search /> */}
           </div>
         </form>
         <nav className="main-navigation__header-nav">

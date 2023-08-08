@@ -53,21 +53,34 @@
 }
 
 .search {
-  background-color: #404345;
+  background-color: #4a4e51;
   width: 220px;
-  box-shadow: 1px 1px 1px px gray;
+  border-radius: 5px;
+  border-color: transparent;
+  padding: 9px;
+  margin-left: 5px;
+  width: 380px
   
 }
 
 .search-frame {
-  width: 220px;
-  float: right;
+  width: 320px;
+  display: inline;
 }
 
 .search:focus {
-  border-color: #2b5f8a;
-  box-shadow: 0 0 0 4px #378ad326;
+  box-shadow: 0 0 3px 5px #378ad326;
   color: #fff;
   outline: 0;
 }
 
+.search-icon {
+  filter: invert(1);
+  padding: 1px;
+  position: relative;
+  top: 0.3rem;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
