@@ -18,10 +18,6 @@ const SideBarData = [
     link: "/users",
     text: "Users",
   },
-  {
-    link: "/jobs",
-    text: "Jobs",
-  },
 ];
 
 const SideBar = () => (
@@ -30,7 +26,6 @@ const SideBar = () => (
       <SideBarItem isHome={true} link="/" text="Home" />
 
       <div className="public-tabs">
-        <p className="title fc-light">PUBLIC</p>
         {SideBarData.map(({ link, icon, text }, index) => (
           <SideBarItem key={index} link={link} icon={icon} text={text} />
         ))}
