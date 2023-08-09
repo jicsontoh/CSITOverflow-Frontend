@@ -1,7 +1,9 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
+
+import SideBar from "../components/SideBar";
 
 import "./HomePage.css";
-import SideBar from "../components/SideBar";
 
 const HomePage = (props) => {
   return (
@@ -11,9 +13,9 @@ const HomePage = (props) => {
         <div id="mainbar" className="homepage fc-black-800">
           <div className="questions-grid">
             <h3 className="questions-headline">Top Questions</h3>
-            <div className="questions-btn">
-              <button>Ask Question</button>
-            </div>
+            <NavLink to="/ask-qns" className="ask-qns-button">
+              Ask Question
+            </NavLink>
           </div>
         </div>
       </div>

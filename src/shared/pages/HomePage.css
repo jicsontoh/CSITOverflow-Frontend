@@ -11,6 +11,21 @@
   display: none;
 }
 
+.ask-qns-button {
+  border: transparent;
+  color: white;
+  background: #0063bf;
+  border-radius: 6px;
+  padding: 1%;
+  margin: 0 2% 4% 0;
+}
+
+.ask-qns-button:hover,
+.ask-qns-button:active {
+  background: #0481f5;
+  color: white;
+}
+
 .btns-filter {
   margin: 3% 0% 3% 0%;
 }
@@ -35,7 +50,7 @@
 }
 
 .homepage .questions-grid {
-  display: flex;
+  display: inline-flex;
   padding-left: 24px;
 }
 
