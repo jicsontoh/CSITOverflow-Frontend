@@ -39,6 +39,7 @@
 
 #mainbar {
   padding-top: 25px;
+  width: calc(100vw - 220px);
   color: #c4c8cc;
 }
 
@@ -52,6 +53,7 @@
 .homepage .questions-grid {
   display: inline-flex;
   padding-left: 24px;
+  width: 100%;
 }
 
 .homepage .questions-grid .questions-headline {
