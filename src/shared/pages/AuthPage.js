@@ -29,9 +29,7 @@ const AuthPage = ({ register, login, action }) => {
         <div className="form-container">
           <form className="login-form" onSubmit={null}>
             <div>
-              <label className="form-label s-label fc-black-600">
-                Username
-              </label>
+              <label className="form-label s-label">Username</label>
               <input
                 className="form-input s-input"
                 type="text"
@@ -43,9 +41,7 @@ const AuthPage = ({ register, login, action }) => {
               />
             </div>
             <div>
-              <label className="form-label s-label fc-black-600">
-                Password
-              </label>
+              <label className="form-label s-label">Password</label>
               <input
                 className="form-input s-input"
                 type="password"

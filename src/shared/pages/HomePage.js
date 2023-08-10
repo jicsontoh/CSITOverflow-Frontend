@@ -10,7 +10,7 @@ const HomePage = (props) => {
     <React.Fragment>
       <div className="page">
         <SideBar />
-        <div id="mainbar" className="homepage fc-black-800">
+        <div id="mainbar" className="homepage">
           <div className="questions-grid">
             <h3 className="questions-headline">Top Questions</h3>
             <NavLink to="/ask-qns" className="ask-qns-button">

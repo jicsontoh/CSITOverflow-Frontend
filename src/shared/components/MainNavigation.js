@@ -31,16 +31,16 @@ const MainNavigation = (props) => {
           className={`searchbar`}
           autoComplete="off"
         >
-          <div className="search-frame">
-            <Search className="search-icon" />
+          <div className="ps-relative search-frame">
             <input
-              className="search"
+              className="s-input s-input__search h100 search-box"
               autoComplete="off"
               type="text"
               name="search"
               maxLength="35"
               placeholder="Search..."
             />
+            <Search />
           </div>
         </form>
         <nav className="main-navigation__header-nav">

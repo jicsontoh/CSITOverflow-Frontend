@@ -52,16 +52,17 @@
   }
 }
 
-.search {
-  background-color: #4a4e51;
-  width: 220px;
-  border-radius: 5px;
-  border-color: transparent;
-  padding: 9px;
-  margin-left: 5px;
-  width: 380px
+.search-box {
+  background-color: #2f3132;
+  border-color: #666666;
   
 }
+
+.searchbar {
+  width: 350px;
+  display: inline;
+}
+
 
 .search-frame {
   width: 320px;
