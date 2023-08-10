@@ -1,5 +1,8 @@
 import React from "react";
 
+import { ReactComponent as GlobalIcon } from "../../assets/Globe.svg";
+import { ReactComponent as TagIcon } from "../../assets/Tag.svg";
+import { ReactComponent as UserIcon } from "../../assets/Users.svg";
 import SideBarItem from "./SideBarItem.js";
 
 import "./SideBar.css";
@@ -7,15 +10,17 @@ import "./SideBar.css";
 const SideBarData = [
   {
     link: "/questions",
-    // icon: <GlobalIcon className="icon" />,
+    icon: <GlobalIcon className="icon" />,
     text: "Questions",
   },
   {
     link: "/tags",
+    icon: <TagIcon className="icon" />,
     text: "Tags",
   },
   {
     link: "/users",
+    icon: <UserIcon className="icon" />,
     text: "Users",
   },
 ];
