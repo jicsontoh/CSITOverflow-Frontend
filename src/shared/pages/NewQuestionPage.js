@@ -24,10 +24,10 @@ const NewQuestionPage = (props) => {
                     <input
                       className="form-input s-input"
                       type="text"
-                      name="username"
+                      name="title"
                       // value={username}
                       onChange={(e) => onChange(e)}
-                      id="username"
+                      id="title"
                       required
                     />
                   </div>
@@ -36,22 +36,23 @@ const NewQuestionPage = (props) => {
                     <input
                       className="form-input s-input"
                       type="text"
-                      name="username"
+                      name="tags"
                       // value={username}
                       onChange={(e) => onChange(e)}
-                      id="username"
+                      id="tags"
                       required
                     />
                   </div>
                   <div>
                     <label className="form-label s-label">Question</label>
-                    <input
+                    <textarea
                       className="form-input s-input"
                       type="text"
-                      name="username"
+                      name="question"
+                      rows={18}
                       // value={username}
                       onChange={(e) => onChange(e)}
-                      id="username"
+                      id="question"
                       required
                     />
                   </div>
