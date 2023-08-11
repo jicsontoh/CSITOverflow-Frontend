@@ -17,6 +17,9 @@ const AuthPage = ({ register, login, action }) => {
     password: "",
   });
 
+  const onChange = (e) =>
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+
   const { username, password } = formData;
 
   return (
@@ -35,7 +38,7 @@ const AuthPage = ({ register, login, action }) => {
                 type="text"
                 name="username"
                 value={username}
-                onChange={null}
+                onChange={(e) => onChange(e)}
                 id="username"
                 required
               />
@@ -47,7 +50,7 @@ const AuthPage = ({ register, login, action }) => {
                 type="password"
                 name="password"
                 value={password}
-                onChange={null}
+                onChange={(e) => onChange(e)}
                 id="password"
                 required
               />
