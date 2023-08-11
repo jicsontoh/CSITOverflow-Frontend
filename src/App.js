@@ -5,6 +5,7 @@ import MainNavigation from "./shared/components/MainNavigation";
 import LoginPage from "./shared/pages/LoginPage";
 import SignUpPage from "./shared/pages/SignupPage";
 import NewQuestionPage from "./questions/pages/NewQuestionPage";
+import QuestionsPage from "./questions/pages/QuestionsPage";
 
 function App() {
   let routes;
@@ -15,6 +16,7 @@ function App() {
       <Route path="/login" element={<LoginPage />} />
       <Route path="/signup" element={<SignUpPage />} />
       <Route path="/questions/new" element={<NewQuestionPage />} />
+      <Route path="/questions" element={<QuestionsPage />} />
       <Route
         path="/error404"
         element={<h1 className="center">No such path</h1>}
