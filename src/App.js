@@ -4,7 +4,7 @@ import HomePage from "./shared/pages/HomePage";
 import MainNavigation from "./shared/components/MainNavigation";
 import LoginPage from "./shared/pages/LoginPage";
 import SignUpPage from "./shared/pages/SignupPage";
-import NewQuestionPage from "./shared/pages/NewQuestionPage";
+import NewQuestionPage from "./questions/pages/NewQuestionPage";
 
 function App() {
   let routes;
