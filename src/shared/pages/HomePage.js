@@ -13,7 +13,7 @@ const HomePage = (props) => {
         <div id="mainbar" className="homepage">
           <div className="questions-grid">
             <h3 className="questions-headline">Top Questions</h3>
-            <NavLink to="/ask-qns" className="ask-qns-button">
+            <NavLink to="/questions/new" className="ask-qns-button">
               Ask Question
             </NavLink>
           </div>

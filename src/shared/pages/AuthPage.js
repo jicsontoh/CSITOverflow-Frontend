@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 
-import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStackOverflow } from "@fortawesome/fontawesome-free-brands";
-import {
-  VALIDATOR_EMAIL,
-  VALIDATOR_MINLENGTH,
-  VALIDATOR_REQUIRE,
-} from "../util/validators";
+// import {
+//   VALIDATOR_EMAIL,
+//   VALIDATOR_MINLENGTH,
+//   VALIDATOR_REQUIRE,
+// } from "../util/validators";
 
 import "./AuthPage.css";
 
