@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import AuthPage from "./AuthPage";
+import "./NewQuestionPage.css";
 
 const NewQuestionPage = (props) => {
   const [formData, setFormData] = useState({
@@ -17,7 +17,7 @@ const NewQuestionPage = (props) => {
         <div className="register-content">
           <div className="register-grid">
             <div>
-              <div className="form-container">
+              <div className="question-container">
                 <form className="login-form" onSubmit={null}>
                   <div>
                     <label className="form-label s-label">Title</label>
