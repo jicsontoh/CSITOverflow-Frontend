@@ -6,6 +6,8 @@ import LoginPage from "./shared/pages/LoginPage";
 import SignUpPage from "./shared/pages/SignupPage";
 import NewQuestionPage from "./questions/pages/NewQuestionPage";
 import QuestionsPage from "./questions/pages/QuestionsPage";
+import TagPage from "./tags/pages/TagPage";
+import UsersPage from "./users/pages/UsersPage";
 
 function App() {
   let routes;
@@ -15,6 +17,8 @@ function App() {
       <Route path="/" element={<HomePage />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/signup" element={<SignUpPage />} />
+      <Route path="/tags" element={<TagPage />} />
+      <Route path="/users" element={<UsersPage />} />
       <Route path="/questions/new" element={<NewQuestionPage />} />
       <Route path="/questions" element={<QuestionsPage />} />
       <Route
