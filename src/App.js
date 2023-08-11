@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import HomePage from "./shared/pages/HomePage";
 import MainNavigation from "./shared/components/MainNavigation";
 import LoginPage from "./shared/pages/LoginPage";
+import SignUpPage from "./shared/pages/SignupPage";
 
 function App() {
   let routes;
@@ -11,6 +12,7 @@ function App() {
     <React.Fragment>
       <Route path="/" element={<HomePage />} />
       <Route path="/login" element={<LoginPage />} />
+      <Route path="/signup" element={<SignUpPage />} />
       <Route
         path="/error404"
         element={<h1 className="center">No such path</h1>}
