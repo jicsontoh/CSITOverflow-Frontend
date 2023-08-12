@@ -13,6 +13,7 @@
   
   .form-container div {
     margin: 6px 0;
+
   }
   
   .form-container div button {
@@ -31,7 +32,11 @@
   
   .form-container .form-label {
     font-weight: 600;
-    color: #6a737c;
+    color: #a4a9ae;
+  }
+
+  .form-input {
+    background-color: #2d2d2d;
   }
   
   .icon-holder {
