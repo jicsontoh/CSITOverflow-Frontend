@@ -6,7 +6,7 @@ import ButtonGroup from "../../shared/buttons/ButtonGroup";
 
 import "./QuestionsPage.css";
 
-const QuestionsPage = (props) => {
+const QuestionsPage = () => {
   const [sortType, setSortType] = useState("Newest");
 
   return (
