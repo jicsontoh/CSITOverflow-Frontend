@@ -11,31 +11,17 @@ import TagBadge from "../../tags/components/TagBadge";
 
 import "./PostItem.css";
 
-const PostItem = ({
-  post: {
-    id,
-    title,
-    body,
-    username,
-    gravatar,
-    user_id,
-    answer_count,
-    comment_count,
-    views,
-    created_at,
-    tags,
-  },
-}) => {
+const PostItem = (props) => {
   const answerVoteUp = (
     <div className="vote answer">
-      <span className="vote-count">{answer_count}</span>
+      <span className="vote-count">{props.answer_count}</span>
       <div className="count-text">answers</div>
     </div>
   );
 
   const answerVoteDown = (
     <div className="vote">
-      <span className="vote-count">{answer_count}</span>
+      <span className="vote-count">{props.answer_count}</span>
       <div className="count-text">answers</div>
     </div>
   );
@@ -45,39 +31,34 @@ const PostItem = ({
       <div className="stats-container fc-black-500">
         <div className="stats">
           <div className="vote">
-            <span className="vote-count">{comment_count}</span>
-            <div className="count-text">comments</div>
+            <div className="count-text">{props.views} votes</div>
           </div>
-          {answer_count > 0 ? answerVoteUp : answerVoteDown}
+          {props.answer_count > 0 ? answerVoteUp : answerVoteDown}
           <div className="vote">
-            <span className="vote-count">{tags.length}</span>
-            <div className="count-text">tags</div>
-          </div>
-          <div className="vote">
-            <div className="count-text">{views} views</div>
+            <div className="count-text">{props.views} views</div>
           </div>
         </div>
       </div>
       <div className="summary">
         <h3>
-          <Link to={`/questions/${id}`}>{title}</Link>
+          <Link to={`/questions/${props.id}`}>{props.title}</Link>
         </h3>
         <div
           className="brief"
           dangerouslySetInnerHTML={{
-            __html: injectEllipsis(htmlSubstring(body, 200)),
+            __html: injectEllipsis(htmlSubstring(props.body, 200)),
           }}
         ></div>
         <div className="profile-tags">
-          {tags.map((tag, index) => (
+          {/* {props.tags.map((tag, index) => (
             <TagBadge key={index} tag_name={tag.tagname} size={"s-tag"} />
-          ))}
+          ))} */}
         </div>
         <UserCard
-          created_at={created_at}
-          user_id={user_id}
-          gravatar={gravatar}
-          username={username}
+          created_at={props.created_at}
+          user_id={props.user_id}
+          gravatar={props.gravatar}
+          username={props.username}
           float={"right"}
           backgroundColor={"transparent"}
         />
@@ -86,8 +67,4 @@ const PostItem = ({
   );
 };
 
-PostItem.propTypes = {
-  post: PropTypes.object.isRequired,
-};
-
-export default connect(null)(PostItem);
+export default PostItem;

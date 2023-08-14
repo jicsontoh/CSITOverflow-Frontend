@@ -13,16 +13,17 @@
   .posts .stats {
     display: flex;
     flex-direction: column;
-    flex-shrink: 0;
-    flex-wrap: wrap;
+    width: fit-content;
     align-items: flex-end;
   }
   
   .posts .stats-container {
-    width: 58px;
+    width: 98px;
     color: #6a737c;
     margin-left: 20px;
-    font-size: 11px;
+    font-size: 12px;
+    display: flex;
+    justify-content: flex-end;
   }
   
   .posts .vote {
@@ -48,26 +49,26 @@
   
   .posts .answer {
     border: 2px solid #63b47c;
-    background-color: #63b47c;
-    color: white;
-    border-radius: 3px;
-    padding: 4px;
+    color: #63b47c;
+    border-radius: 6px;
+    /* justify-content: center; */
+    padding: 2px;
   }
   
   .posts .answer .vote-count {
-    color: white;
+    color: #63b47c;
     font-size: 12px;
     padding: 1px;
   }
   
   .posts .answer .count-text {
-    color: white;
+    color: #63b47c;
     font-size: 12px;
     padding: 1px;
   }
   
   .posts .summary {
-    margin-left: 30px;
+    margin-left: 25px;
     width: 600px;
   }
   

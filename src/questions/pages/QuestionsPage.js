@@ -5,6 +5,23 @@ import SideBar from "../../shared/components/SideBar";
 import ButtonGroup from "../../shared/buttons/ButtonGroup";
 
 import "./QuestionsPage.css";
+import QuestionList from "../components/QuestionList";
+
+const posts = [
+  {
+    id: 1,
+    title: "qns title",
+    body: "question body",
+    username: "username",
+    gravatar: "image",
+    user_id: "userid1",
+    answer_count: 10,
+    comment_count: 20,
+    views: 100,
+    created_at: "date",
+    tags: "tags",
+  },
+];
 
 const QuestionsPage = () => {
   const [sortType, setSortType] = useState("Newest");
@@ -27,6 +44,7 @@ const QuestionsPage = () => {
               setSelected={setSortType}
             />
           </div>
+          <QuestionList items={posts} />
         </div>
       </div>
     </React.Fragment>
