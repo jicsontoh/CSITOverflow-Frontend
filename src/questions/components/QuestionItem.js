@@ -6,6 +6,7 @@ import SideBar from "../../shared/components/SideBar";
 import moment from "moment";
 
 import "./QuestionItem.css";
+import VoteButton from "../../shared/buttons/VoteButton";
 
 const posts = [
   {
@@ -80,9 +81,21 @@ const QuestionItem = (props) => {
           <div className="question-line"></div>
 
           <div className="question-main pl24 pt16">
-            {/* <QuestionSection />
-          <AnswerSection /> */}
+            <div className="question">
+              <div className="post-layout">
+                <VoteButton
+                  answerCount={loadedQns.answer_count}
+                  commentCount={loadedQns.comment_count}
+                />
+
+                <div className="question-body">{loadedQns.body}</div>
+                {/* <PostCell/> */}
+                {/* <CommentCell/> */}
+              </div>
+            </div>
           </div>
+
+          <div className="question-line"></div>
         </div>
       </div>
     </React.Fragment>
