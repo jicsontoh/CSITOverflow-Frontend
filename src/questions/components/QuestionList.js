@@ -3,7 +3,7 @@ import React from "react";
 import PostItem from "./PostItem";
 import handleSorting from "../../shared/util/handleSorting";
 
-const itemsPerPage = 10;
+// const itemsPerPage = 10;
 
 const QuestionList = (props) => {
   if (props.items.length === 0) {

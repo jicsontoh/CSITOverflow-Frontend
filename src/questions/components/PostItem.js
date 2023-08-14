@@ -1,9 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import htmlSubstring from "../../shared/util/htmlSubstring";
-import injectEllipsis from "../../shared/util/injectEllipsis";
-
 import UserCard from "../../users/components/UserCard";
 // import TagBadge from "../../tags/components/TagBadge";
 
