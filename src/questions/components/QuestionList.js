@@ -1,15 +1,11 @@
-import React, { useState } from "react";
-import { NavLink, useLocation } from "react-router-dom";
+import React from "react";
 
 import PostItem from "./PostItem";
+import handleSorting from "../../shared/util/handleSorting";
 
 const itemsPerPage = 10;
 
 const QuestionList = (props) => {
-  const [page, setPage] = useState(1);
-  const [sortType, setSortType] = useState("Newest");
-
-  const handlePaginationChange = (e, value) => setPage(value);
   if (props.items.length === 0) {
     return (
       <div className="center">
@@ -20,7 +16,7 @@ const QuestionList = (props) => {
 
   return (
     <div className="questions">
-      {props.items.map((post) => (
+      {props.items.sort(handleSorting(props.sortType)).map((post) => (
         <PostItem
           key={post.index}
           id={post.id}

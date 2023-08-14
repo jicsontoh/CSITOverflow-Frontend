@@ -19,7 +19,7 @@ const posts = [
     comment_count: 20,
     views: 27,
     votes: 10,
-    created_at: "date",
+    created_at: "2023/08/14, 13:00",
     tags: "tags",
   },
   {
@@ -33,7 +33,21 @@ const posts = [
     comment_count: 20,
     views: 30,
     votes: 11,
-    created_at: "date",
+    created_at: "2023/07/14, 13:00",
+    tags: "tags",
+  },
+  {
+    id: 3,
+    title: "qns title3",
+    body: "question body333",
+    username: "username2",
+    gravatar: "image",
+    user_id: "userid2",
+    answer_count: 5,
+    comment_count: 10,
+    views: 24,
+    votes: 15,
+    created_at: "2023/06/14, 13:00",
     tags: "tags",
   },
 ];
@@ -60,7 +74,7 @@ const QuestionsPage = () => {
               setSelected={setSortType}
             />
           </div>
-          <QuestionList items={posts} />
+          <QuestionList items={posts} sortType={sortType} />
         </div>
       </div>
     </React.Fragment>
