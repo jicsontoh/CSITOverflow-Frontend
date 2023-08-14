@@ -1,13 +1,11 @@
 import React from "react";
-import { connect } from "react-redux";
-import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
 import htmlSubstring from "../../shared/util/htmlSubstring";
 import injectEllipsis from "../../shared/util/injectEllipsis";
 
 import UserCard from "../../users/components/UserCard";
-import TagBadge from "../../tags/components/TagBadge";
+// import TagBadge from "../../tags/components/TagBadge";
 
 import "./PostItem.css";
 
@@ -31,7 +29,7 @@ const PostItem = (props) => {
       <div className="stats-container fc-black-500">
         <div className="stats">
           <div className="vote">
-            <div className="count-text">{props.views} votes</div>
+            <div className="count-text">{props.votes} votes</div>
           </div>
           {props.answer_count > 0 ? answerVoteUp : answerVoteDown}
           <div className="vote">
@@ -43,17 +41,7 @@ const PostItem = (props) => {
         <h3>
           <Link to={`/questions/${props.id}`}>{props.title}</Link>
         </h3>
-        <div
-          className="brief"
-          dangerouslySetInnerHTML={{
-            __html: injectEllipsis(htmlSubstring(props.body, 200)),
-          }}
-        ></div>
-        <div className="profile-tags">
-          {/* {props.tags.map((tag, index) => (
-            <TagBadge key={index} tag_name={tag.tagname} size={"s-tag"} />
-          ))} */}
-        </div>
+        <div className="brief">{props.body}</div>
         <UserCard
           created_at={props.created_at}
           user_id={props.user_id}

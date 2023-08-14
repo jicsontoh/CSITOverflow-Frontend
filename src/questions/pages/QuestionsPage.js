@@ -17,7 +17,22 @@ const posts = [
     user_id: "userid1",
     answer_count: 10,
     comment_count: 20,
-    views: 100,
+    views: 27,
+    votes: 10,
+    created_at: "date",
+    tags: "tags",
+  },
+  {
+    id: 2,
+    title: "qns title2",
+    body: "question body222",
+    username: "username",
+    gravatar: "image",
+    user_id: "userid1",
+    answer_count: 10,
+    comment_count: 20,
+    views: 30,
+    votes: 11,
     created_at: "date",
     tags: "tags",
   },
@@ -38,6 +53,7 @@ const QuestionsPage = () => {
             </NavLink>
           </div>
           <div className="questions-tabs">
+            <span>{posts.length} questions</span>
             <ButtonGroup
               buttons={["Newest", "Top", "Views", "Oldest"]}
               selected={sortType}
