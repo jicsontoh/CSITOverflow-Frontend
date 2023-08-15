@@ -2,6 +2,7 @@
   color: white;
   display: inline-flex;
   padding-left: 3rem;
+  padding-right: 20rem;
 }
 
 .main-navigation__title a {
@@ -52,21 +53,9 @@
   }
 }
 
-.search-box {
-  background-color: #2f3132;
-  border-color: #666666;
-  
-}
-
 .searchbar {
-  width: 350px;
-  display: inline;
-}
-
-
-.search-frame {
-  width: 320px;
-  display: inline;
+  margin-left: 0%;
+  
 }
 
 .search:focus {

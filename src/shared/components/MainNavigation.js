@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -7,12 +7,20 @@ import { ReactComponent as Search } from "../../assets/Search.svg";
 
 import NavLinks from "../navigation/NavLink";
 import Header from "./Header";
+import SearchBox from "./SearchBox";
 
 import "./MainNavigation.css";
 
 const MainNavigation = (props) => {
+  const [fetchSearch, setSearch] = useState("");
+
   const search = () => {
     console.log("searching...");
+  };
+
+  const handleChange = (e) => {
+    e.preventDefault();
+    setSearch(e.target.value);
   };
 
   return (
@@ -25,24 +33,11 @@ const MainNavigation = (props) => {
             <div className="big-title">overflow</div>
           </Link>
         </div>
-        <form
-          id="search"
-          onSubmit={search}
-          className={`searchbar`}
-          autoComplete="off"
-        >
-          <div className="ps-relative search-frame">
-            <input
-              className="s-input s-input__search h100 search-box"
-              autoComplete="off"
-              type="text"
-              name="search"
-              maxLength="35"
-              placeholder="Search..."
-            />
-            <Search />
-          </div>
-        </form>
+        <SearchBox
+          placeholder={"Search..."}
+          handleChange={handleChange}
+          width={"550px"}
+        />
         <nav className="main-navigation__header-nav">
           <NavLinks />
         </nav>
