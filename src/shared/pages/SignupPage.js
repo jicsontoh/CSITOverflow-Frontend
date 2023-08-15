@@ -8,7 +8,7 @@ const SignUpPage = (props) => {
       <div className="auth-page">
         <div className="register-content">
           <div className="register-grid">
-            <AuthPage action={"Sign up"} />
+            <AuthPage action="Sign up" />
           </div>
         </div>
       </div>

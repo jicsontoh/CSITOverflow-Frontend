@@ -8,7 +8,7 @@ const LoginPage = (props) => {
       <div className="auth-page">
         <div className="register-content">
           <div className="register-grid">
-            <AuthPage action={"Log in"} />
+            <AuthPage action="Log in" />
           </div>
         </div>
       </div>

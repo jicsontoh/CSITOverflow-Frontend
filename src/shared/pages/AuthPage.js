@@ -1,17 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useContext, formState } from "react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStackOverflow } from "@fortawesome/fontawesome-free-brands";
-// import {
-//   VALIDATOR_EMAIL,
-//   VALIDATOR_MINLENGTH,
-//   VALIDATOR_REQUIRE,
-// } from "../util/validators";
+import {
+  VALIDATOR_EMAIL,
+  VALIDATOR_MINLENGTH,
+  VALIDATOR_REQUIRE,
+} from "../util/validators";
+
+import { NavLink } from "react-router-dom";
+import { AuthContext } from "../context/auth-context";
 
 import "./AuthPage.css";
-import { NavLink } from "react-router-dom";
 
-const AuthPage = ({ register, login, action }) => {
+const AuthPage = (props) => {
+  const auth = useContext(AuthContext);
+  const [isLoginMode, setIsLoginMode] = useState(true);
+
   const [formData, setFormData] = useState({
     username: "",
     password: "",
@@ -73,13 +78,13 @@ const AuthPage = ({ register, login, action }) => {
                 required
               />
             </div>
-            {action === "Sign up" && (
+            {props.action === "Sign up" && (
               <div>
                 <label className="form-label s-label">Re-enter password</label>
                 <input
                   className="form-input s-input"
                   type="password"
-                  name="password"
+                  name="reenterpassword"
                   value={password}
                   onChange={(e) => onChange(e)}
                   id="password"
@@ -93,13 +98,13 @@ const AuthPage = ({ register, login, action }) => {
                 id="submit-button"
                 name="submit-button"
               >
-                {action}
+                {props.action}
               </button>
             </div>
           </form>
         </div>
         <div className="redirects fc-black-500">
-          {action === "Sign up" ? signUpLink : logInLink}
+          {props.action === "Sign up" ? signUpLink : logInLink}
         </div>
       </div>
     </React.Fragment>
