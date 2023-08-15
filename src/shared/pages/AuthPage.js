@@ -9,6 +9,7 @@ import { faStackOverflow } from "@fortawesome/fontawesome-free-brands";
 // } from "../util/validators";
 
 import "./AuthPage.css";
+import { NavLink } from "react-router-dom";
 
 const AuthPage = ({ register, login, action }) => {
   const [formData, setFormData] = useState({
@@ -20,6 +21,24 @@ const AuthPage = ({ register, login, action }) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
   const { username, password } = formData;
+
+  const signUpLink = (
+    <React.Fragment>
+      Already have an account?{" "}
+      <NavLink to="/login" name="login">
+        Log in
+      </NavLink>
+    </React.Fragment>
+  );
+
+  const logInLink = (
+    <React.Fragment>
+      Don't have an account?{" "}
+      <NavLink to="/signup" name="signup">
+        Sign up
+      </NavLink>
+    </React.Fragment>
+  );
 
   return (
     <React.Fragment>
@@ -54,6 +73,20 @@ const AuthPage = ({ register, login, action }) => {
                 required
               />
             </div>
+            {action === "Sign up" && (
+              <div>
+                <label className="form-label s-label">Re-enter password</label>
+                <input
+                  className="form-input s-input"
+                  type="password"
+                  name="password"
+                  value={password}
+                  onChange={(e) => onChange(e)}
+                  id="password"
+                  required
+                />
+              </div>
+            )}
             <div className="grid gs4 gsy fd-column js-auth-item ">
               <button
                 className="s-btn s-btn__primary"
@@ -66,7 +99,7 @@ const AuthPage = ({ register, login, action }) => {
           </form>
         </div>
         <div className="redirects fc-black-500">
-          {/* {action === "Sign up" ? signUpLink : logInLink} */}
+          {action === "Sign up" ? signUpLink : logInLink}
         </div>
       </div>
     </React.Fragment>
