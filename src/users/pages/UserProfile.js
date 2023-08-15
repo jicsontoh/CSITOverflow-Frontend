@@ -7,11 +7,17 @@ import UserSection from "../components/UserSection";
 
 import "./UserProfile.css";
 
+import m from "../../assets/Logos/male1.png";
+import f from "../../assets/Logos/female1.png";
+import m2 from "../../assets/Logos/male2.png";
+import f2 from "../../assets/Logos/female2.png";
+import m3 from "../../assets/Logos/male3.png";
+
 const users = [
   {
     id: "userid1",
     username: "username",
-    gravatar: "image",
+    gravatar: m,
     answer_count: 10,
     comment_count: 20,
     post_count: 4,
@@ -19,9 +25,9 @@ const users = [
     created_at: "2023/08/14, 13:00",
   },
   {
-    id: "userid1",
-    username: "username",
-    gravatar: "image",
+    id: "userid3",
+    username: "username3",
+    gravatar: f,
     answer_count: 10,
     comment_count: 20,
     post_count: 6,
@@ -31,11 +37,31 @@ const users = [
   {
     id: "userid2",
     username: "username2",
-    gravatar: "image",
+    gravatar: m2,
     answer_count: 5,
     comment_count: 10,
     post_count: 2,
     votes: 15,
+    created_at: "2023/06/14, 13:00",
+  },
+  {
+    id: "userid4",
+    username: "username4",
+    gravatar: f2,
+    answer_count: 7,
+    comment_count: 11,
+    post_count: 2,
+    votes: 20,
+    created_at: "2023/06/14, 13:00",
+  },
+  {
+    id: "userid5",
+    username: "username5",
+    gravatar: m3,
+    answer_count: 8,
+    comment_count: 1,
+    post_count: 5,
+    votes: 20,
     created_at: "2023/06/14, 13:00",
   },
 ];
