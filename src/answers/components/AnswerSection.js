@@ -33,7 +33,7 @@ const AnswerSection = (props) => {
             </div>
           ))
         )} */}
-        <div className="add-answer">{/* <AnswerForm/> */}</div>
+        <div className="add-answer">{<AnswerForm />}</div>
       </div>
     </Fragment>
   );
