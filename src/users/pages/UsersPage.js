@@ -6,13 +6,19 @@ import SearchBox from "../../shared/components/SearchBox";
 import handleSorting from "../../shared/util/handleSorting";
 import UserPanel from "../components/UserPanel";
 
+import m from "../../assets/Logos/male1.png";
+import f from "../../assets/Logos/female1.png";
+import m2 from "../../assets/Logos/male2.png";
+import f2 from "../../assets/Logos/female2.png";
+import m3 from "../../assets/Logos/male3.png";
+
 import "./UsersPage.css";
 
 const users = [
   {
     id: "userid1",
     username: "username",
-    gravatar: "image",
+    gravatar: m,
     answer_count: 10,
     comment_count: 20,
     post_count: 4,
@@ -22,7 +28,7 @@ const users = [
   {
     id: "userid3",
     username: "username3",
-    gravatar: "image",
+    gravatar: f,
     answer_count: 10,
     comment_count: 20,
     post_count: 6,
@@ -32,7 +38,7 @@ const users = [
   {
     id: "userid2",
     username: "username2",
-    gravatar: "image",
+    gravatar: m2,
     answer_count: 5,
     comment_count: 10,
     post_count: 2,
@@ -42,7 +48,7 @@ const users = [
   {
     id: "userid4",
     username: "username4",
-    gravatar: "image",
+    gravatar: f2,
     answer_count: 7,
     comment_count: 11,
     post_count: 2,
@@ -52,7 +58,7 @@ const users = [
   {
     id: "userid5",
     username: "username5",
-    gravatar: "image",
+    gravatar: m3,
     answer_count: 8,
     comment_count: 1,
     post_count: 5,
