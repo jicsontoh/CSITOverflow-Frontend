@@ -35,13 +35,13 @@ const handleSorting = (sortType, page = "") => {
     case "Oldest":
       return (a, b) => new Date(a.created_at) - new Date(b.created_at);
     case "Popular":
-      return (a, b) => b.posts_count - a.posts_count;
+      return (a, b) => b.votes - a.votes;
+    // case "Name":
+    //   return (a, b) => a.tagname.localeCompare(b.tagname);
     case "Name":
-      return (a, b) => a.tagname.localeCompare(b.tagname);
-    case "Username":
       return (a, b) => a.username.localeCompare(b.username);
     case "Popular users":
-      return (a, b) => b.views - a.views;
+      return (a, b) => b.votes - a.votes;
     case "Today":
       return (a, b) => {
         const aDate = todayDate - getTime(a.created_at);

@@ -1,11 +1,8 @@
 import React from "react";
 
-import { NavLink, useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import SideBar from "../../shared/components/SideBar";
 
-import moment from "moment";
-
-import VoteButton from "../../shared/buttons/VoteButton";
 import UserSection from "../components/UserSection";
 
 import "./UserProfile.css";
