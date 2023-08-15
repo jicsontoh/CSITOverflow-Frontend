@@ -6,7 +6,10 @@ import SideBar from "../../shared/components/SideBar";
 import moment from "moment";
 
 import "./QuestionItem.css";
+
 import VoteButton from "../../shared/buttons/VoteButton";
+import UserCard from "../../users/components/UserCard";
+import AnswerSection from "../../answers/components/AnswerSection";
 
 const posts = [
   {
@@ -89,13 +92,30 @@ const QuestionItem = (props) => {
                 />
 
                 <div className="question-body">{loadedQns.body}</div>
-                {/* <PostCell/> */}
+                <div className="post-cell">
+                  <div className="post-actions fc-black-800">
+                    <div className="post-actions-extended">
+                      <div className="post-btns"></div>
+                      <UserCard
+                        created_at={loadedQns.created_at}
+                        user_id={loadedQns.user_id}
+                        gravatar={loadedQns.gravatar}
+                        username={loadedQns.username}
+                      />
+                    </div>
+                  </div>
+                </div>
+
                 {/* <CommentCell/> */}
               </div>
             </div>
           </div>
 
           <div className="question-line"></div>
+
+          <div className="pl24 pt16">
+            <AnswerSection />
+          </div>
         </div>
       </div>
     </React.Fragment>
