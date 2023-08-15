@@ -11,6 +11,7 @@ import TagPage from "./tags/pages/TagPage";
 import UsersPage from "./users/pages/UsersPage";
 import QuestionItem from "./questions/components/QuestionItem";
 import { AuthContext } from "./shared/context/auth-context";
+import UserProfile from "./users/pages/UserProfile";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -31,6 +32,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/tags" element={<TagPage />} />
         <Route path="/users" element={<UsersPage />} />
+        <Route path="/users/:userId" element={<UserProfile />} />
         <Route path="/questions/new" element={<NewQuestionPage />} />
         <Route path="/questions" element={<QuestionsPage />} />
         <Route path="/questions/:questionId" element={<QuestionItem />} />
@@ -49,6 +51,7 @@ function App() {
         <Route path="/signup" element={<SignUpPage />} />
         <Route path="/tags" element={<TagPage />} />
         <Route path="/users" element={<UsersPage />} />
+        <Route path="/users/:userId" element={<UserProfile />} />
         <Route path="/questions" element={<QuestionsPage />} />
         <Route path="/questions/new" element={<LoginPage />} />
         <Route path="/questions/:questionId" element={<QuestionItem />} />
@@ -56,7 +59,7 @@ function App() {
           path="/error404"
           element={<h1 className="center">No such path</h1>}
         />
-        <Route path="*" element={<Navigate replace to="/" />} />
+        <Route path="*" element={<Navigate replace to="/login" />} />
       </React.Fragment>
     );
   }

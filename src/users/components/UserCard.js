@@ -27,7 +27,7 @@ const UserCard = ({
           <div className="user-logo">
             <Link className="user-link" to={`/users/${user_id}`}>
               <div className="logo-wrapper">
-                <img alt="user_logo" src={gravatar} />
+                <img alt="logo" src={gravatar} />
               </div>
             </Link>
           </div>

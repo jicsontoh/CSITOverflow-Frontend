@@ -14,14 +14,14 @@ const SideBarData = [
     text: "Questions",
   },
   {
-    link: "/tags",
-    icon: <TagIcon className="icon" />,
-    text: "Tags",
-  },
-  {
     link: "/users",
     icon: <UserIcon className="icon" />,
     text: "Users",
+  },
+  {
+    link: "/tags",
+    icon: <TagIcon className="icon" />,
+    text: "Tags",
   },
 ];
 
