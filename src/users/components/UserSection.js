@@ -12,7 +12,7 @@ const UserSection = ({ user }) => (
       username={user.username}
       answer_count={user.answer_count}
       post_count={user.post_count}
-      comment_count={user.comment_count}
+      votes={user.votes}
       tag_count={user.tag_count}
       created_at={user.created_at}
     />

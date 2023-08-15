@@ -61,6 +61,7 @@
   
   .content-card .stats-cell .count-sec .counts .cells {
     margin: 6px;
+    padding-right: 1%;
   }
   
   .content-card .stats-cell .count-sec .counts .cells .column-grid {

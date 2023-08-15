@@ -21,22 +21,23 @@ const ContentCard = (props) => (
           <div className="counts">
             <div className="cells">
               <div className="column-grid">
-                <div className="head fc-black-700">{props.answer_count}</div>
-                <div className="foot fc-black-500">answers</div>
-              </div>
-            </div>
-            <div className="cells">
-              <div className="column-grid">
                 <div className="head fc-black-700">{props.post_count}</div>
-                <div className="foot fc-black-500">questions</div>
+                <div className="foot fc-black-500">Questions</div>
               </div>
             </div>
             <div className="cells">
               <div className="column-grid">
-                <div className="head fc-black-700">{props.comment_count}</div>
-                <div className="foot fc-black-500">comments</div>
+                <div className="head fc-black-700">{props.answer_count}</div>
+                <div className="foot fc-black-500">Answers</div>
               </div>
             </div>
+            <div className="cells">
+              <div className="column-grid">
+                <div className="head fc-black-700">{props.votes}</div>
+                <div className="foot fc-black-500">Votes</div>
+              </div>
+            </div>
+
             {/* <div className="cells">
               <div className="column-grid">
                 <div className="head fc-black-700">{props.tags_count}</div>
