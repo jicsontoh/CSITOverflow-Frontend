@@ -1,12 +1,10 @@
-import React, { Fragment, useContext } from "react";
+import React, { Fragment } from "react";
 // import { connect } from "react-redux";
 // import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
 // import { deleteAnswer } from "../../../../redux/answers/answers.actions";
 
 import { ReactComponent as UpVote } from "../../assets/ArrowUpLg.svg";
 import { ReactComponent as DownVote } from "../../assets/ArrowDownLg.svg";
-import { AuthContext } from "../../shared/context/auth-context";
 import UserCard from "../../users/components/UserCard";
 
 import "./AnswerItem.css";

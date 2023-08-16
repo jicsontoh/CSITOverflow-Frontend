@@ -1,21 +1,21 @@
-import React, { useState, useContext, formState } from "react";
+import React, { useState } from "react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStackOverflow } from "@fortawesome/fontawesome-free-brands";
-import {
-  VALIDATOR_EMAIL,
-  VALIDATOR_MINLENGTH,
-  VALIDATOR_REQUIRE,
-} from "../util/validators";
+// import {
+//   VALIDATOR_EMAIL,
+//   VALIDATOR_MINLENGTH,
+//   VALIDATOR_REQUIRE,
+// } from "../util/validators";
 
 import { NavLink } from "react-router-dom";
-import { AuthContext } from "../context/auth-context";
+// import { AuthContext } from "../context/auth-context";
 
 import "./AuthPage.css";
 
 const AuthPage = (props) => {
-  const auth = useContext(AuthContext);
-  const [isLoginMode, setIsLoginMode] = useState(true);
+  //   const auth = useContext(AuthContext);
+  //   const [isLoginMode, setIsLoginMode] = useState(true);
 
   const [formData, setFormData] = useState({
     username: "",

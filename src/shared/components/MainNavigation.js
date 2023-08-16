@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStackOverflow } from "@fortawesome/fontawesome-free-brands";
-import { ReactComponent as Search } from "../../assets/Search.svg";
 
 import NavLinks from "../navigation/NavLink";
 import Header from "./Header";
@@ -12,11 +11,11 @@ import SearchBox from "./SearchBox";
 import "./MainNavigation.css";
 
 const MainNavigation = (props) => {
-  const [fetchSearch, setSearch] = useState("");
+  const [setSearch] = useState("");
 
-  const search = () => {
-    console.log("searching...");
-  };
+  // const search = () => {
+  //   console.log("searching...");
+  // };
 
   const handleChange = (e) => {
     e.preventDefault();

@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useRef, useContext } from "react";
+import React, { Fragment, useContext } from "react";
 // import { connect } from "react-redux";
 // import PropTypes from "prop-types";
 // import {addAnswer} from '../../../../redux/answers/answers.actions';
@@ -11,19 +11,17 @@ import "./AnswerForm.css";
 const AnswerForm = (props) => {
   const auth = useContext(AuthContext);
 
-  const [formData, setFormData] = useState({
-    text: "",
-  });
+  //   const [formData, setFormData] = useState({
+  //     text: "",
+  //   });
 
-  const { text } = formData;
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    // addAnswer(post.id, { text });
-    setFormData({
-      text: "",
-    });
-  };
+  //   const handleSubmit = async (e) => {
+  //     e.preventDefault();
+  //     // addAnswer(post.id, { text });
+  //     setFormData({
+  //       text: "",
+  //     });
+  //   };
 
   //   const updateConvertedContent = (htmlConvertedContent) => {
   //     setFormData({ ...formData, text: htmlConvertedContent });
@@ -31,8 +29,8 @@ const AnswerForm = (props) => {
 
   return (
     <Fragment>
-      {!auth.isLoggedIn ? (
-        <form className="answer-form" onSubmit={(e) => handleSubmit(e)}>
+      {auth.isLoggedIn ? (
+        <form className="answer-form" onSubmit={(e) => null}>
           <div className="answer-grid">
             <label className=" fc-black-800">Your Answer</label>
             <div className="rich-text-editor-container">

@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useEffect } from "react";
+import React, { Fragment } from "react";
 // import { connect } from "react-redux";
 // import PropTypes from "prop-types";
 // import { getAnswers } from "../../../redux/answers/answers.actions";
@@ -7,7 +7,6 @@ import handleSorting from "../../shared/util/handleSorting";
 // import AnswerItem from "./AnswerItem/AnswerItem.component";
 // import Spinner from "../../../components/molecules/Spinner/Spinner.component";
 import AnswerForm from "./AnswerForm";
-import ButtonGroup from "../../shared/buttons/ButtonGroup";
 import AnswerItem from "./AnswerItem";
 
 import "./AnswerSection.css";
@@ -43,7 +42,7 @@ const answers = [
 ];
 
 const AnswerSection = (props) => {
-  const [sortType, setSortType] = useState("Newest");
+  //   const [sortType, setSortType] = useState("Newest");
   const ans = answers.filter((a) => a.qns_id === props.qns_id);
 
   return (
@@ -60,7 +59,7 @@ const AnswerSection = (props) => {
                 </div>
               </div>
             </div>
-            {ans.sort(handleSorting(sortType)).map((a) => (
+            {ans.sort(handleSorting("Newest")).map((a) => (
               <div className="answers">
                 <AnswerItem answer={a} />
                 <div className="answer-line"></div>
