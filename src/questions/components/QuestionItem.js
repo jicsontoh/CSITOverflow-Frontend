@@ -112,7 +112,7 @@ const QuestionItem = (props) => {
           <div className="question-line"></div>
 
           <div className="pl24 pt16">
-            <AnswerSection />
+            <AnswerSection qns_id={qnsId} />
           </div>
         </div>
       </div>

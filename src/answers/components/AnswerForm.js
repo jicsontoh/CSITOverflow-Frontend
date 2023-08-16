@@ -32,26 +32,24 @@ const AnswerForm = (props) => {
   return (
     <Fragment>
       {!auth.isLoggedIn ? (
-        <Fragment>
-          <form className="answer-form" onSubmit={(e) => handleSubmit(e)}>
-            <div className="answer-grid">
-              <label className=" fc-black-800">Your Answer</label>
-              <div className="rich-text-editor-container">
-                {/* <MDEditor value={null} onChange={null} /> */}
-                <textarea
-                  className="answer-input s-input"
-                  type="text"
-                  name="question"
-                  rows={15}
-                  // value={username}
-                  id="question"
-                  required
-                />
-              </div>
-              <button className="s-btn s-btn__primary">Post Your Answer</button>
+        <form className="answer-form" onSubmit={(e) => handleSubmit(e)}>
+          <div className="answer-grid">
+            <label className=" fc-black-800">Your Answer</label>
+            <div className="rich-text-editor-container">
+              {/* <MDEditor value={null} onChange={null} /> */}
+              <textarea
+                className="answer-input s-input"
+                type="text"
+                name="question"
+                rows={15}
+                // value={username}
+                id="question"
+                required
+              />
             </div>
-          </form>
-        </Fragment>
+            <button className="s-btn s-btn__primary">Post Your Answer</button>
+          </div>
+        </form>
       ) : (
         <Fragment>
           <LinkButton
