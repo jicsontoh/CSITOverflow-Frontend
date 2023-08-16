@@ -1,15 +1,17 @@
 import React from "react";
+import moment from "moment";
 
 import { NavLink, useParams } from "react-router-dom";
 import SideBar from "../../shared/components/SideBar";
 
-import moment from "moment";
-
-import "./QuestionItem.css";
+import { ReactComponent as UpVote } from "../../assets/ArrowUpLg.svg";
+import { ReactComponent as DownVote } from "../../assets/ArrowDownLg.svg";
 
 import VoteButton from "../../shared/buttons/VoteButton";
 import UserCard from "../../users/components/UserCard";
 import AnswerSection from "../../answers/components/AnswerSection";
+
+import "./QuestionItem.css";
 
 const posts = [
   {
