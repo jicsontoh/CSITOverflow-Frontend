@@ -15,8 +15,6 @@ const AnswerForm = (props) => {
     text: "",
   });
 
-  const markdownEditorRef = useRef(null);
-
   const { text } = formData;
 
   const handleSubmit = async (e) => {
@@ -25,7 +23,6 @@ const AnswerForm = (props) => {
     setFormData({
       text: "",
     });
-    markdownEditorRef.current.cleanEditorState();
   };
 
   //   const updateConvertedContent = (htmlConvertedContent) => {
@@ -34,17 +31,18 @@ const AnswerForm = (props) => {
 
   return (
     <Fragment>
-      {auth.isLoggedIn ? (
+      {!auth.isLoggedIn ? (
         <Fragment>
           <form className="answer-form" onSubmit={(e) => handleSubmit(e)}>
             <div className="answer-grid">
               <label className=" fc-black-800">Your Answer</label>
-              <div className="s-textarea rich-text-editor-container">
+              <div className="rich-text-editor-container">
+                {/* <MDEditor value={null} onChange={null} /> */}
                 <textarea
-                  className="form-input s-input"
+                  className="answer-input s-input"
                   type="text"
                   name="question"
-                  rows={18}
+                  rows={15}
                   // value={username}
                   id="question"
                   required
@@ -67,10 +65,5 @@ const AnswerForm = (props) => {
     </Fragment>
   );
 };
-
-const mapStateToProps = (state) => ({
-  auth: state.auth,
-  post: state.post,
-});
 
 export default AnswerForm;

@@ -88,7 +88,7 @@ const QuestionItem = (props) => {
               <div className="post-layout">
                 <VoteButton
                   answerCount={loadedQns.answer_count}
-                  commentCount={loadedQns.comment_count}
+                  votes={loadedQns.votes}
                 />
 
                 <div className="question-body">{loadedQns.body}</div>
@@ -105,8 +105,6 @@ const QuestionItem = (props) => {
                     </div>
                   </div>
                 </div>
-
-                {/* <CommentCell/> */}
               </div>
             </div>
           </div>

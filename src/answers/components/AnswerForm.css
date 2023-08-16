@@ -27,6 +27,12 @@
   .answer-grid .s-textarea.rich-text-editor-container {
     padding: 0;
   }
+
+  .answer-input {
+    width: 90%;
+    border: 1px solid white;
+    font-size: 14px;
+  }
   
   .answer-grid .s-textarea.rich-text-editor-container .rich-text-editor-toolbar {
     padding: 0;
