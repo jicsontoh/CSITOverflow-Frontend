@@ -19,7 +19,7 @@
     color: #bbc0c4 !important;
   }
   
-  .answer-layout .vote-cell .vote-container button {
+.vote-cell .vote-container button {
     padding: 10px;
     border: 1px solid white;
     outline: none;
@@ -31,11 +31,11 @@
     text-decoration: none;
   }
 
-  .answer-layout .vote-cell .vote-container button:hover {
+.vote-cell .vote-container button:hover {
     background-color: #cfd2d6;
   }
   
-  .answer-layout .vote-cell .vote-container .vote-count {
+.vote-cell .vote-container .vote-count {
     font-size: 21px;
     display: flex;
     justify-content: center;

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import moment from "moment";
 
 import { NavLink, useParams } from "react-router-dom";
@@ -6,6 +6,8 @@ import SideBar from "../../shared/components/SideBar";
 
 import { ReactComponent as UpVote } from "../../assets/ArrowUpLg.svg";
 import { ReactComponent as DownVote } from "../../assets/ArrowDownLg.svg";
+
+import { AuthContext } from "../../shared/context/auth-context";
 
 import VoteButton from "../../shared/buttons/VoteButton";
 import UserCard from "../../users/components/UserCard";
@@ -59,6 +61,8 @@ const posts = [
 ];
 
 const QuestionItem = (props) => {
+  const auth = useContext(AuthContext);
+
   const qnsId = useParams().questionId;
   const loadedQns = posts.filter((qns) => qns.id === qnsId)[0];
 
@@ -88,10 +92,30 @@ const QuestionItem = (props) => {
           <div className="question-main pl24 pt16">
             <div className="question">
               <div className="post-layout">
-                <VoteButton
-                  answerCount={loadedQns.answer_count}
-                  votes={loadedQns.votes}
-                />
+                {auth.isLoggedIn && auth.user_id === loadedQns.user_id ? (
+                  <VoteButton
+                    answerCount={loadedQns.answer_count}
+                    votes={loadedQns.votes}
+                  />
+                ) : (
+                  <div className="vote-cell">
+                    <div className="vote-container">
+                      <button
+                        className="vote-up"
+                        title="This answer is useful (click again to undo)"
+                      >
+                        <UpVote className="icon" />
+                      </button>
+                      <div className="vote-count fc-black-500">0</div>
+                      <button
+                        className="vote-down"
+                        title="This answer is not useful (click again to undo)"
+                      >
+                        <DownVote className="icon" />
+                      </button>
+                    </div>
+                  </div>
+                )}
 
                 <div className="question-body">{loadedQns.body}</div>
                 <div className="post-cell">

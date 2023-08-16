@@ -44,7 +44,7 @@ const answers = [
 
 const AnswerSection = (props) => {
   const [sortType, setSortType] = useState("Newest");
-  const ans = answers.filter((a) => a.qns_id !== props.qns_id);
+  const ans = answers.filter((a) => a.qns_id === props.qns_id);
 
   return (
     <Fragment>
