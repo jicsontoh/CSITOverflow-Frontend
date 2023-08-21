@@ -19,7 +19,6 @@ import "./AuthPage.css";
 
 const AuthPage = (props) => {
   const auth = useContext(AuthContext);
-  const [isLoginMode, setIsLoginMode] = useState(true);
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
 
   const [formData, setFormData] = useState({

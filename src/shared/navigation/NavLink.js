@@ -32,6 +32,16 @@ const NavLinks = (props) => {
       )}
       {auth.isLoggedIn && (
         <li>
+          <NavLink
+            to={`/users/${auth.userId}`}
+            className="nav-links-login-button"
+          >
+            My Profile
+          </NavLink>
+        </li>
+      )}
+      {auth.isLoggedIn && (
+        <li>
           <button onClick={auth.logout}>Logout</button>
         </li>
       )}
