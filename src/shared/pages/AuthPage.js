@@ -1,7 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStackOverflow } from "@fortawesome/fontawesome-free-brands";
+import LoadingSpinner from "../UIElements/LoadingSpinner";
+import ErrorModal from "../UIElements/ErrorModal";
+
 // import {
 //   VALIDATOR_EMAIL,
 //   VALIDATOR_MINLENGTH,
@@ -9,23 +12,26 @@ import { faStackOverflow } from "@fortawesome/fontawesome-free-brands";
 // } from "../util/validators";
 
 import { NavLink } from "react-router-dom";
-// import { AuthContext } from "../context/auth-context";
+import { AuthContext } from "../context/auth-context";
+import { useHttpClient } from "../hooks/http-hook";
 
 import "./AuthPage.css";
 
 const AuthPage = (props) => {
-  //   const auth = useContext(AuthContext);
-  //   const [isLoginMode, setIsLoginMode] = useState(true);
+  const auth = useContext(AuthContext);
+  const [isLoginMode, setIsLoginMode] = useState(true);
+  const { isLoading, error, sendRequest, clearError } = useHttpClient();
 
   const [formData, setFormData] = useState({
     username: "",
     password: "",
+    reenterpwd: "",
   });
 
   const onChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
-  const { username, password } = formData;
+  const { username, password, reenterpwd } = formData;
 
   const signUpLink = (
     <React.Fragment>
@@ -45,15 +51,54 @@ const AuthPage = (props) => {
     </React.Fragment>
   );
 
+  const authSubmitHandler = async (event) => {
+    event.preventDefault();
+
+    if (props.action === "Log in") {
+      try {
+        const responseData = await sendRequest(
+          "http://localhost:8080/api/users/login",
+          "POST",
+          JSON.stringify({
+            username: username,
+            password: password,
+          }),
+          {
+            "Content-Type": "application/json",
+          }
+        );
+        auth.login(responseData.user.id);
+      } catch (err) {}
+    } else {
+      try {
+        const responseData = await sendRequest(
+          "http://localhost:8080/api/users/signup",
+          "POST",
+          JSON.stringify({
+            username: username,
+            password: password,
+            reenterpwd: reenterpwd,
+          }),
+          {
+            "Content-Type": "application/json",
+          }
+        );
+        auth.login(responseData.user.id);
+      } catch (err) {}
+    }
+  };
+
   return (
     <React.Fragment>
+      <ErrorModal error={error} onClear={clearError} />
+      {isLoading && <LoadingSpinner asOverlay />}
       <div>
         <div className="icon-holder">
           <FontAwesomeIcon icon={faStackOverflow} size="6x" />
           <div className="big-title">csit</div>
         </div>
         <div className="form-container">
-          <form className="login-form" onSubmit={null}>
+          <form className="login-form" onSubmit={authSubmitHandler}>
             <div>
               <label className="form-label s-label">Username</label>
               <input
@@ -84,10 +129,10 @@ const AuthPage = (props) => {
                 <input
                   className="form-input s-input"
                   type="password"
-                  name="reenterpassword"
-                  value={password}
+                  name="reenterpwd"
+                  value={reenterpwd}
                   onChange={(e) => onChange(e)}
-                  id="password"
+                  id="reenterpwd"
                   required
                 />
               </div>
