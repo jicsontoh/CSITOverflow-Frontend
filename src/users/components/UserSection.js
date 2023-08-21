@@ -5,18 +5,22 @@ import ContentCard from "../UIElements/ContentCard";
 
 import "./UserSection.css";
 
-const UserSection = ({ user }) => (
-  <div className="grid">
-    <AvatarCard id={user.id} gravatar={user.gravatar} views={user.views} />
-    <ContentCard
-      username={user.username}
-      answer_count={user.answer_count}
-      post_count={user.post_count}
-      votes={user.votes}
-      tag_count={user.tag_count}
-      created_at={user.created_at}
-    />
-  </div>
-);
+const UserSection = ({ user }) => {
+  return (
+    <React.Fragment>
+      <div className="grid">
+        <AvatarCard id={user.id} gravatar={user.gravatar} />
+        <ContentCard
+          username={user.username}
+          answer_count={user.answers.length}
+          post_count={user.questions.length}
+          votes={0}
+          tag_count={0}
+          created_at={user.created_at}
+        />
+      </div>
+    </React.Fragment>
+  );
+};
 
 export default UserSection;
