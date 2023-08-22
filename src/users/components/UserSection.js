@@ -14,8 +14,7 @@ const UserSection = ({ user }) => {
           username={user.username}
           answer_count={user.answers.length}
           post_count={user.questions.length}
-          votes={0}
-          tag_count={0}
+          votes={user.votes}
           created_at={user.created_at}
         />
       </div>

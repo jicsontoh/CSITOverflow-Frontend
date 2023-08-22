@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import moment from "moment";
 
 import { NavLink, useParams } from "react-router-dom";
@@ -65,6 +65,18 @@ const QuestionItem = (props) => {
 
   const qnsId = useParams().questionId;
   const loadedQns = posts.filter((qns) => qns.id === qnsId)[0];
+  const initial = loadedQns.votes;
+  const [qnsCount, setQnsCount] = useState(initial);
+
+  const upVote = () => {
+    loadedQns.votes = qnsCount + 1;
+    setQnsCount(qnsCount + 1);
+  };
+
+  const downVote = () => {
+    loadedQns.votes = qnsCount - 1;
+    setQnsCount(qnsCount - 1);
+  };
 
   return (
     <React.Fragment>
@@ -103,13 +115,15 @@ const QuestionItem = (props) => {
                       <button
                         className="vote-up"
                         title="This answer is useful (click again to undo)"
+                        onClick={upVote}
                       >
                         <UpVote className="icon" />
                       </button>
-                      <div className="vote-count fc-black-500">0</div>
+                      <div className="vote-count fc-black-500">{qnsCount}</div>
                       <button
                         className="vote-down"
                         title="This answer is not useful (click again to undo)"
+                        onClick={downVote}
                       >
                         <DownVote className="icon" />
                       </button>
