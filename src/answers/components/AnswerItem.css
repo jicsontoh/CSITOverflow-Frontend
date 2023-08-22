@@ -34,6 +34,11 @@
 .vote-cell .vote-container button:hover {
     background-color: #cfd2d6;
   }
+
+.vote-cell .vote-container .button-selected {
+    background-color: #cfd2d6;
+} 
+
   
 .vote-cell .vote-container .vote-count {
     font-size: 21px;

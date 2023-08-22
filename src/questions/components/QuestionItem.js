@@ -82,39 +82,46 @@ const QuestionItem = (props) => {
           `http://localhost:8080/api/questions/${qnsId}`
         );
         setLoadedQns(responseData.qns);
-        setVotes(responseData.qns.up_votes - responseData.qns.down_votes);
+        setVotes(
+          responseData.qns.up_votes.length - responseData.qns.down_votes.length
+        );
       } catch (err) {}
     };
     fetchQns();
   }, [sendRequest, qnsId]);
 
-  const updateVote = async () => {
+  const updateVote = async (props) => {
     try {
-      await sendRequest(
-        `http://localhost:8080/api/questions/${qnsId}`,
+      const responseData = await sendRequest(
+        `http://localhost:8080/api/questions/vote/${qnsId}`,
         "PATCH",
         JSON.stringify({
-          title: loadedQns.title,
-          body: loadedQns.body,
-          up_votes: loadedQns.up_votes,
-          down_votes: loadedQns.down_votes,
+          up_id: props.up,
+          down_id: props.down,
         }),
         {
           "Content-Type": "application/json",
         }
       );
+      setLoadedQns(responseData.qns);
     } catch (err) {}
   };
 
   const vote = (action) => {
     if (action === "up" && auth.isLoggedIn) {
-      loadedQns.up_votes += 1;
-      setVotes(votes + 1);
-      updateVote();
+      if (!loadedQns.up_votes.includes(auth.userId)) {
+        setVotes(votes + 1);
+      } else {
+        setVotes(votes - 1);
+      }
+      updateVote({ up: auth.userId });
     } else if (action === "down" && auth.isLoggedIn) {
-      loadedQns.down_votes += 1;
-      setVotes(votes - 1);
-      updateVote();
+      if (!loadedQns.down_votes.includes(auth.userId)) {
+        setVotes(votes - 1);
+      } else {
+        setVotes(votes + 1);
+      }
+      updateVote({ down: auth.userId });
     } else {
       history("/login");
     }
@@ -158,7 +165,10 @@ const QuestionItem = (props) => {
                     <div className="vote-cell">
                       <div className="vote-container">
                         <button
-                          className="vote-up"
+                          className={
+                            loadedQns.up_votes.includes(auth.userId) &&
+                            "button-selected"
+                          }
                           title="This answer is useful (click again to undo)"
                           onClick={() => vote("up")}
                         >
@@ -166,7 +176,10 @@ const QuestionItem = (props) => {
                         </button>
                         <div className="vote-count fc-black-500">{votes}</div>
                         <button
-                          className="vote-down"
+                          className={
+                            loadedQns.down_votes.includes(auth.userId) &&
+                            "button-selected"
+                          }
                           title="This answer is not useful (click again to undo)"
                           onClick={() => vote("down")}
                         >
@@ -197,7 +210,7 @@ const QuestionItem = (props) => {
             <div className="question-line"></div>
 
             <div className="pl24 pt16">
-              <AnswerSection qns_id={qnsId} />
+              <AnswerSection qns_id={qnsId} answers={loadedQns.answers} />
             </div>
           </div>
         </div>

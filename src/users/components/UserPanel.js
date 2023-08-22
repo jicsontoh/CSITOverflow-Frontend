@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 import "./UserPanel.css";
 
 const UserPanel = ({
-  user: { id, username, created_at, post_count, answer_count, votes, gravatar },
+  user: { id, username, created_at, questions, answers, votes, gravatar },
 }) => {
   return (
     <Fragment>
@@ -24,17 +24,17 @@ const UserPanel = ({
           </Link>
           <span className="item">
             <span className="count">
-              {post_count}{" "}
+              {questions.length}{" "}
               <span className="count-info">
-                {post_count === 1 ? "QUESTION" : "QUESTIONS"}
+                {questions.length === 1 ? "QUESTION" : "QUESTIONS"}
               </span>
             </span>
           </span>
           <span className="item">
             <span className="count">
-              {answer_count}{" "}
+              {answers.length}{" "}
               <span className="count-info">
-                {answer_count === 1 ? "ANSWER" : "ANSWERS"}
+                {answers.length === 1 ? "ANSWER" : "ANSWERS"}
               </span>
             </span>
           </span>
