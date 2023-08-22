@@ -64,6 +64,26 @@ const AnswerItem = ({
     }
   };
 
+  //   const vote = (action) => {
+  //     if (action === "up" && auth.isLoggedIn) {
+  //       if (!loadedQns.up_votes.includes(auth.userId)) {
+  //         setVotes(votes + 1);
+  //       } else {
+  //         setVotes(votes - 1);
+  //       }
+  //       updateVote({ up: auth.userId });
+  //     } else if (action === "down" && auth.isLoggedIn) {
+  //       if (!loadedQns.down_votes.includes(auth.userId)) {
+  //         setVotes(votes - 1);
+  //       } else {
+  //         setVotes(votes + 1);
+  //       }
+  //       updateVote({ down: auth.userId });
+  //     } else {
+  //       history("/login");
+  //     }
+  //   };
+
   return (
     <React.Fragment>
       <ErrorModal error={error} onClear={clearError} />

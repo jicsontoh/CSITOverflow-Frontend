@@ -1,24 +1,59 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { AuthContext } from "../../shared/context/auth-context";
+import { useNavigate } from "react-router-dom";
+
+import LoadingSpinner from "../../shared/UIElements/LoadingSpinner";
+import ErrorModal from "../../shared/UIElements/ErrorModal";
+import { useHttpClient } from "../../shared/hooks/http-hook";
 
 import "./NewQuestionPage.css";
 
 const NewQuestionPage = (props) => {
+  const auth = useContext(AuthContext);
+  const history = useNavigate();
+
+  const { isLoading, error, sendRequest, clearError } = useHttpClient();
+
   const [formData, setFormData] = useState({
-    username: "",
-    password: "",
+    title: "",
+    tags: "",
+    question: "",
   });
 
   const onChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
+  const postQuestionHandler = async (event) => {
+    event.preventDefault();
+
+    try {
+      await sendRequest(
+        "http://localhost:8080/api/questions/new",
+        "POST",
+        JSON.stringify({
+          title: formData.title,
+          tags: formData.tags,
+          question: formData.question,
+          user_id: auth.userId,
+        }),
+        {
+          "Content-Type": "application/json",
+        }
+      );
+      history("/");
+    } catch (err) {}
+  };
+
   return (
     <React.Fragment>
+      <ErrorModal error={error} onClear={clearError} />
+      {isLoading && <LoadingSpinner asOverlay />}
       <div className="auth-page">
         <div className="register-content">
           <div className="register-grid">
             <div>
               <div className="question-container">
-                <form className="login-form" onSubmit={null}>
+                <form className="login-form" onSubmit={postQuestionHandler}>
                   <div>
                     <label className="form-label s-label">Title</label>
                     <input
