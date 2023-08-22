@@ -58,7 +58,7 @@ const HomePage = (props) => {
         <SideBar />
         <div id="mainbar" className="homepage">
           <div className="questions-grid">
-            <h3 className="questions-headline">Top Questions</h3>
+            <h3 className="questions-headline">Trending Questions</h3>
             <NavLink to="/questions/new" className="ask-qns-button">
               Ask Question
             </NavLink>

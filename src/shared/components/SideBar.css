@@ -1,5 +1,6 @@
 .side-bar-container {
     width: 17%;
+    height: 120vh;
     min-width: 206px;
     flex-shrink: 0;
     z-index: 1;
