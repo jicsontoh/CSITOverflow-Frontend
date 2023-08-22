@@ -27,8 +27,8 @@ const QuestionList = (props) => {
           user_id={post.user_id}
           answer_count={post.answer_count}
           comment_count={post.comment_count}
-          views={post.views}
-          votes={post.votes}
+          views={0}
+          votes={post.up_votes - post.down_votes}
           created_at={post.created_at}
           tags={post.tags}
         />
