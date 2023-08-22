@@ -31,15 +31,17 @@
     margin-bottom: 8px;
     text-align: center;
     display: flex;
+    align-items: center;
   }
   
   .posts .vote .vote-count {
     font-size: 14px;
-    margin-right: 2px;
+    margin-right: 3px;
+    padding: 1px;
   }
   
   .posts .vote .count-text {
-    font-size: 12px;
+    font-size: 14px;
   }
   
   .posts .vote .views .count-text {
@@ -52,18 +54,18 @@
     color: #63b47c;
     border-radius: 6px;
     /* justify-content: center; */
-    padding: 2px;
+    padding: 3.5px;
   }
   
   .posts .answer .vote-count {
     color: #63b47c;
-    font-size: 12px;
-    padding: 1px;
+    font-size: 14px;
+
   }
   
   .posts .answer .count-text {
     color: #63b47c;
-    font-size: 12px;
+    font-size: 14px;
     padding: 1px;
   }
   
@@ -83,7 +85,7 @@
     color: #0077cc;
     line-height: 1.3;
     margin-bottom: 1.2em;
-    font-size: 16px;
+    font-size: 18px;
     text-decoration: none;
   }
   
@@ -95,7 +97,7 @@
     padding: 0 0 5px 0;
     margin: 0;
     font-family: Arial, serif;
-    font-size: 13px;
+    font-size: 14px;
   }
   
   .posts .summary .question-user {
@@ -112,7 +114,7 @@
   .posts .summary .question-user .user-info .user-action-time {
     margin-bottom: 2px;
     margin-top: 1px;
-    font-size: 12px;
+    font-size: 14px;
   }
   
   .posts .summary .question-user .user-info .user-gravatar {

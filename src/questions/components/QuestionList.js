@@ -25,9 +25,7 @@ const QuestionList = (props) => {
           username={post.username}
           gravatar={post.gravatar}
           user_id={post.user_id}
-          answer_count={post.answer_count}
-          comment_count={post.comment_count}
-          views={0}
+          answer_count={post.answers.length}
           votes={post.up_votes - post.down_votes}
           created_at={post.created_at}
           tags={post.tags}

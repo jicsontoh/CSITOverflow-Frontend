@@ -10,7 +10,9 @@ const PostItem = (props) => {
   const answerVoteUp = (
     <div className="vote answer">
       <span className="vote-count">{props.answer_count}</span>
-      <div className="count-text">answers</div>
+      <div className="count-text">
+        {props.answer_count > 1 ? "answers" : "answer"}
+      </div>
     </div>
   );
 
@@ -29,9 +31,6 @@ const PostItem = (props) => {
             <div className="count-text">{props.votes} votes</div>
           </div>
           {props.answer_count > 0 ? answerVoteUp : answerVoteDown}
-          <div className="vote">
-            <div className="count-text">{props.views} views</div>
-          </div>
         </div>
       </div>
       <div className="summary">
