@@ -1,4 +1,5 @@
-import React, { Fragment, useContext } from "react";
+import React, { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 // import { connect } from "react-redux";
 // import PropTypes from "prop-types";
 // import {addAnswer} from '../../../../redux/answers/answers.actions';
@@ -6,31 +7,53 @@ import React, { Fragment, useContext } from "react";
 import LinkButton from "../../shared/buttons/LinkButton";
 import { AuthContext } from "../../shared/context/auth-context";
 
+import LoadingSpinner from "../../shared/UIElements/LoadingSpinner";
+import ErrorModal from "../../shared/UIElements/ErrorModal";
+import { useHttpClient } from "../../shared/hooks/http-hook";
+
 import "./AnswerForm.css";
 
 const AnswerForm = (props) => {
   const auth = useContext(AuthContext);
+  const history = useNavigate();
 
-  //   const [formData, setFormData] = useState({
-  //     text: "",
-  //   });
+  const qnsId = props.qnsId;
 
-  //   const handleSubmit = async (e) => {
-  //     e.preventDefault();
-  //     // addAnswer(post.id, { text });
-  //     setFormData({
-  //       text: "",
-  //     });
-  //   };
+  const { isLoading, error, sendRequest, clearError } = useHttpClient();
 
-  //   const updateConvertedContent = (htmlConvertedContent) => {
-  //     setFormData({ ...formData, text: htmlConvertedContent });
-  //   };
+  const [formData, setFormData] = useState({
+    answer: "",
+  });
+
+  const onChange = (e) =>
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+
+  const postAnswerHandler = async (event) => {
+    event.preventDefault();
+
+    try {
+      await sendRequest(
+        "http://localhost:8080/api/answers/new",
+        "POST",
+        JSON.stringify({
+          answer: formData.answer,
+          qns_id: qnsId,
+          user_id: auth.userId,
+        }),
+        {
+          "Content-Type": "application/json",
+        }
+      );
+      history(`/questions/${qnsId}`);
+    } catch (err) {}
+  };
 
   return (
-    <Fragment>
+    <React.Fragment>
+      <ErrorModal error={error} onClear={clearError} />
+      {isLoading && <LoadingSpinner asOverlay />}
       {auth.isLoggedIn ? (
-        <form className="answer-form" onSubmit={(e) => null}>
+        <form className="answer-form" onSubmit={postAnswerHandler}>
           <div className="answer-grid">
             <label className=" fc-black-800">Your Answer</label>
             <div className="rich-text-editor-container">
@@ -38,10 +61,11 @@ const AnswerForm = (props) => {
               <textarea
                 className="answer-input s-input"
                 type="text"
-                name="question"
+                name="answer"
                 rows={15}
+                onChange={(e) => onChange(e)}
                 // value={username}
-                id="question"
+                id="answer"
                 required
               />
             </div>
@@ -49,16 +73,16 @@ const AnswerForm = (props) => {
           </div>
         </form>
       ) : (
-        <Fragment>
+        <React.Fragment>
           <LinkButton
             text={"You need to login to add an answer"}
             link={"/login"}
             type={"s-btn__outlined"}
             marginTop={"12px"}
           />
-        </Fragment>
+        </React.Fragment>
       )}
-    </Fragment>
+    </React.Fragment>
   );
 };
 

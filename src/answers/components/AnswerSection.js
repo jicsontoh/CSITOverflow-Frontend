@@ -90,7 +90,7 @@ const AnswerSection = (props) => {
               ))}
             </React.Fragment>
           )}
-          <div className="add-answer">{<AnswerForm />}</div>
+          <div className="add-answer">{<AnswerForm qnsId={qnsId} />}</div>
         </div>
       )}
     </React.Fragment>
