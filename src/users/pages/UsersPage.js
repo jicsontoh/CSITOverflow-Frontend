@@ -10,12 +10,6 @@ import LoadingSpinner from "../../shared/UIElements/LoadingSpinner";
 import ErrorModal from "../../shared/UIElements/ErrorModal";
 import { useHttpClient } from "../../shared/hooks/http-hook";
 
-// import m from "../../assets/Logos/male1.png";
-// import f from "../../assets/Logos/female1.png";
-// import m2 from "../../assets/Logos/male2.png";
-// import f2 from "../../assets/Logos/female2.png";
-// import m3 from "../../assets/Logos/male3.png";
-
 import "./UsersPage.css";
 
 // const users = [

@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import AvatarImage from "./GetAvatar";
 
 import "./AvatarCard.css";
 
@@ -9,7 +10,7 @@ const AvatarCard = ({ id, gravatar, views }) => (
       <div className="avatar">
         <Link className="avatar-link" to={`/users/${id}`}>
           <div className="logo-wrapper">
-            <img src={gravatar} alt="user-logo" />
+            <AvatarImage gravatar={gravatar} />
           </div>
         </Link>
       </div>

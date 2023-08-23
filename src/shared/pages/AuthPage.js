@@ -8,9 +8,11 @@ import ErrorModal from "../UIElements/ErrorModal";
 import M1 from "../../assets/Avatars/male1.png";
 import M2 from "../../assets/Avatars/male2.png";
 import M3 from "../../assets/Avatars/male3.png";
+import M4 from "../../assets/Avatars/male4.png";
 import F1 from "../../assets/Avatars/female1.png";
 import F2 from "../../assets/Avatars/female2.png";
 import F3 from "../../assets/Avatars/female3.png";
+import F4 from "../../assets/Avatars/female4.png";
 
 // import {
 //   VALIDATOR_EMAIL,
@@ -32,12 +34,13 @@ const AuthPage = (props) => {
     username: "",
     password: "",
     reenterpwd: "",
+    avatar: "",
   });
 
   const onChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
-  const { username, password, reenterpwd } = formData;
+  const { username, password, reenterpwd, avatar } = formData;
 
   const signUpLink = (
     <React.Fragment>
@@ -56,6 +59,15 @@ const AuthPage = (props) => {
       </NavLink>
     </React.Fragment>
   );
+
+  const selectAvatar = (event) => {
+    setFormData({
+      username,
+      password,
+      reenterpwd,
+      avatar: event.currentTarget.id,
+    });
+  };
 
   const authSubmitHandler = async (event) => {
     event.preventDefault();
@@ -84,6 +96,7 @@ const AuthPage = (props) => {
             username: username,
             password: password,
             reenterpwd: reenterpwd,
+            avatar: avatar,
           }),
           {
             "Content-Type": "application/json",
@@ -140,25 +153,71 @@ const AuthPage = (props) => {
                 />
                 <label className="form-label s-label">Select Avatar</label>
                 <div className="avatar">
-                  <button type="button">
-                    <img src={M1} height={100} width={100} />
+                  <button
+                    id="M1"
+                    type="button"
+                    className={avatar === "M1" && "clicked"}
+                    onClick={selectAvatar}
+                  >
+                    <img src={M1} alt="M1" height={100} width={100} />
                   </button>
-                  <button type="button">
-                    <img src={M2} height={100} width={100} />
+                  <button
+                    id="M2"
+                    type="button"
+                    className={avatar === "M2" && "clicked"}
+                    onClick={selectAvatar}
+                  >
+                    <img src={M2} alt="M2" height={100} width={100} />
                   </button>
-                  <button type="button">
-                    <img src={M3} height={100} width={100} />
+                  <button
+                    id="M3"
+                    type="button"
+                    className={avatar === "M3" && "clicked"}
+                    onClick={selectAvatar}
+                  >
+                    <img src={M3} alt="M3" height={100} width={100} />
+                  </button>
+                  <button
+                    id="M4"
+                    type="button"
+                    className={avatar === "M4" && "clicked"}
+                    onClick={selectAvatar}
+                  >
+                    <img src={M4} alt="M4" height={100} width={100} />
                   </button>
                 </div>
                 <div className="avatar">
-                  <button type="button">
-                    <img src={F1} height={100} width={100} />
+                  <button
+                    id="F1"
+                    type="button"
+                    className={avatar === "F1" && "clicked"}
+                    onClick={selectAvatar}
+                  >
+                    <img src={F1} alt="F1" height={100} width={100} />
                   </button>
-                  <button type="button">
-                    <img src={F2} height={100} width={100} />
+                  <button
+                    id="F2"
+                    type="button"
+                    className={avatar === "F2" && "clicked"}
+                    onClick={selectAvatar}
+                  >
+                    <img src={F2} alt="F2" height={100} width={100} />
                   </button>
-                  <button type="button">
-                    <img src={F3} height={100} width={100} />
+                  <button
+                    id="F3"
+                    type="button"
+                    className={avatar === "F3" && "clicked"}
+                    onClick={selectAvatar}
+                  >
+                    <img src={F3} alt="F3" height={100} width={100} />
+                  </button>
+                  <button
+                    id="F4"
+                    type="button"
+                    className={avatar === "F4" && "clicked"}
+                    onClick={selectAvatar}
+                  >
+                    <img src={F4} alt="F4" height={100} width={100} />
                   </button>
                 </div>
               </React.Fragment>

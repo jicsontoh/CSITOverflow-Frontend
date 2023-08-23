@@ -2,6 +2,7 @@ import React, { Fragment } from "react";
 import moment from "moment";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
+import AvatarImage from "../UIElements/GetAvatar";
 
 import "./UserPanel.css";
 
@@ -14,7 +15,7 @@ const UserPanel = ({
         <div className="user-gravatar">
           <Link to={`/users/${id}`}>
             <div className="logo-wrapper">
-              <img alt="user-logo" src={gravatar} />
+              <AvatarImage gravatar={gravatar} />
             </div>
           </Link>
         </div>

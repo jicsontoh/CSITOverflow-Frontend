@@ -1,6 +1,7 @@
 import React, { Fragment } from "react";
 import moment from "moment";
 import { Link } from "react-router-dom";
+import AvatarImage from "../UIElements/GetAvatar";
 
 import "./UserCard.css";
 
@@ -27,7 +28,7 @@ const UserCard = ({
           <div className="user-logo">
             <Link className="user-link" to={`/users/${user_id}`}>
               <div className="logo-wrapper">
-                <img alt="logo" src={gravatar} />
+                <AvatarImage gravatar={gravatar} />
               </div>
             </Link>
           </div>
