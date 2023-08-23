@@ -86,7 +86,7 @@ const HomePage = (props) => {
               </NavLink>
             </div>
 
-            <QuestionList items={loadedQns} sortType="Top" />
+            <QuestionList items={loadedQns} sortType="Popular" />
           </div>
         </div>
       )}
