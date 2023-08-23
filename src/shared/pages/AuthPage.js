@@ -5,6 +5,13 @@ import { faStackOverflow } from "@fortawesome/fontawesome-free-brands";
 import LoadingSpinner from "../UIElements/LoadingSpinner";
 import ErrorModal from "../UIElements/ErrorModal";
 
+import M1 from "../../assets/Avatars/male1.png";
+import M2 from "../../assets/Avatars/male2.png";
+import M3 from "../../assets/Avatars/male3.png";
+import F1 from "../../assets/Avatars/female1.png";
+import F2 from "../../assets/Avatars/female2.png";
+import F3 from "../../assets/Avatars/female3.png";
+
 // import {
 //   VALIDATOR_EMAIL,
 //   VALIDATOR_MINLENGTH,
@@ -98,32 +105,29 @@ const AuthPage = (props) => {
         </div>
         <div className="form-container">
           <form className="login-form" onSubmit={authSubmitHandler}>
-            <div>
-              <label className="form-label s-label">Username</label>
-              <input
-                className="form-input s-input"
-                type="text"
-                name="username"
-                value={username}
-                onChange={(e) => onChange(e)}
-                id="username"
-                required
-              />
-            </div>
-            <div>
-              <label className="form-label s-label">Password</label>
-              <input
-                className="form-input s-input"
-                type="password"
-                name="password"
-                value={password}
-                onChange={(e) => onChange(e)}
-                id="password"
-                required
-              />
-            </div>
+            <label className="form-label s-label">Username</label>
+            <input
+              className="form-input s-input"
+              type="text"
+              name="username"
+              value={username}
+              onChange={(e) => onChange(e)}
+              id="username"
+              required
+            />
+
+            <label className="form-label s-label">Password</label>
+            <input
+              className="form-input s-input"
+              type="password"
+              name="password"
+              value={password}
+              onChange={(e) => onChange(e)}
+              id="password"
+              required
+            />
             {props.action === "Sign up" && (
-              <div>
+              <React.Fragment>
                 <label className="form-label s-label">Re-enter password</label>
                 <input
                   className="form-input s-input"
@@ -134,7 +138,30 @@ const AuthPage = (props) => {
                   id="reenterpwd"
                   required
                 />
-              </div>
+                <label className="form-label s-label">Select Avatar</label>
+                <div className="avatar">
+                  <button type="button">
+                    <img src={M1} height={100} width={100} />
+                  </button>
+                  <button type="button">
+                    <img src={M2} height={100} width={100} />
+                  </button>
+                  <button type="button">
+                    <img src={M3} height={100} width={100} />
+                  </button>
+                </div>
+                <div className="avatar">
+                  <button type="button">
+                    <img src={F1} height={100} width={100} />
+                  </button>
+                  <button type="button">
+                    <img src={F2} height={100} width={100} />
+                  </button>
+                  <button type="button">
+                    <img src={F3} height={100} width={100} />
+                  </button>
+                </div>
+              </React.Fragment>
             )}
             <div className="grid gs4 gsy fd-column js-auth-item ">
               <button
