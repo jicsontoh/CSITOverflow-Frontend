@@ -66,7 +66,7 @@ const NewQuestionPage = (props) => {
                       required
                     />
                   </div>
-                  <div>
+                  {/* <div>
                     <label className="form-label s-label">Tags</label>
                     <input
                       className="form-input s-input"
@@ -77,7 +77,7 @@ const NewQuestionPage = (props) => {
                       id="tags"
                       required
                     />
-                  </div>
+                  </div> */}
                   <div>
                     <label className="form-label s-label">Question</label>
                     <textarea

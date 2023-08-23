@@ -7,11 +7,13 @@ import UserSection from "../components/UserSection";
 import LoadingSpinner from "../../shared/UIElements/LoadingSpinner";
 import ErrorModal from "../../shared/UIElements/ErrorModal";
 import { useHttpClient } from "../../shared/hooks/http-hook";
+import QuestionList from "../../questions/components/QuestionList";
 
 import "./UserProfile.css";
 
 const UserProfile = (props) => {
   const [loadedUser, setLoadedUser] = useState();
+  const [loadedQns, setLoadedQns] = useState();
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
 
   const userId = useParams().userId;
@@ -23,6 +25,11 @@ const UserProfile = (props) => {
           `http://localhost:8080/api/users/${userId}`
         );
         setLoadedUser(responseData.user);
+
+        const data = await sendRequest(
+          `http://localhost:8080/api/users/questions/${userId}`
+        );
+        setLoadedQns(data.qns);
       } catch (err) {}
     };
     fetchUser();
@@ -38,6 +45,17 @@ const UserProfile = (props) => {
           <div id="mainbar" className="user-main-bar pl24 pt24">
             <div className="user-card">
               <UserSection user={loadedUser} />
+              <div className="questions">
+                {/* <div className="">
+                  <h1 className="">Top Questions</h1>
+                </div> */}
+                <QuestionList
+                  className="home-page"
+                  items={loadedQns}
+                  sortType="Top"
+                />
+              </div>
+
               {/* <div className="grid--cell s-navigation mb16">
               <Link
                 to="#"

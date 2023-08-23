@@ -22,4 +22,9 @@
     margin: -12px;
     display: flex;
   }
+
+  .questions {
+    border-top: 1px solid #4a4e51;
+    color: #e7e8eb;
+  }
   
