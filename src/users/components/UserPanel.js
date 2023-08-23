@@ -39,14 +39,14 @@ const UserPanel = ({
               </span>
             </span>
           </span>
-          <span className="item">
+          {/* <span className="item">
             <span className="count">
               {votes}{" "}
               <span className="count-info">
                 {votes === 1 ? "VOTE" : "VOTES"}
               </span>
             </span>
-          </span>
+          </span> */}
           <span className="item user-time" style={{ paddingTop: "1px" }}>
             <span className="count" style={{ fontWeight: "400" }}>
               User joined - {moment(created_at).fromNow(false)}

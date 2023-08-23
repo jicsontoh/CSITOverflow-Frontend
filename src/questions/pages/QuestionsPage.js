@@ -11,7 +11,7 @@ import { useHttpClient } from "../../shared/hooks/http-hook";
 import "./QuestionsPage.css";
 
 const QuestionsPage = () => {
-  const [sortType, setSortType] = useState("Top");
+  const [sortType, setSortType] = useState("Popular");
 
   const [loadedQns, setLoadedQns] = useState();
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
@@ -45,7 +45,7 @@ const QuestionsPage = () => {
             <div className="questions-tabs">
               <span>{loadedQns.length} questions</span>
               <ButtonGroup
-                buttons={["Top", "Newest", "Oldest"]}
+                buttons={["Popular", "Newest", "Oldest"]}
                 selected={sortType}
                 setSelected={setSortType}
               />

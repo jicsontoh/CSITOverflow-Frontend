@@ -26,7 +26,7 @@ const handleSorting = (sortType, page = "") => {
     case "New Users":
       return (a, b) => new Date(b.created_at) - new Date(a.created_at);
     case "Top":
-      return (a, b) => b.up_votes - a.up_votes;
+      return (a, b) => b.up_votes.length - a.up_votes.length;
     case "Active":
       return (a, b) =>
         b.posts_count + b.tags_count - (a.posts_count + a.tags_count);
@@ -35,13 +35,16 @@ const handleSorting = (sortType, page = "") => {
     case "Oldest":
       return (a, b) => new Date(a.created_at) - new Date(b.created_at);
     case "Popular":
-      return (a, b) => b.up_votes - a.up_votes;
+      return (a, b) =>
+        b.up_votes.length -
+        b.down_votes.length -
+        (a.up_votes.length - a.down_votes.length);
     // case "Name":
     //   return (a, b) => a.tagname.localeCompare(b.tagname);
     case "Name":
       return (a, b) => a.username.localeCompare(b.username);
     case "Popular users":
-      return (a, b) => b.votes - a.votes;
+      return (a, b) => b.answers.length - a.answers.length;
     case "Today":
       return (a, b) => {
         const aDate = todayDate - getTime(a.created_at);

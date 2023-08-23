@@ -31,12 +31,12 @@ const ContentCard = (props) => (
                 <div className="foot fc-black-500">Answers</div>
               </div>
             </div>
-            <div className="cells">
+            {/* <div className="cells">
               <div className="column-grid">
                 <div className="head fc-black-700">{props.votes}</div>
                 <div className="foot fc-black-500">Votes</div>
               </div>
-            </div>
+            </div> */}
 
             {/* <div className="cells">
               <div className="column-grid">
