@@ -56,7 +56,7 @@ import "./QuestionsPage.css";
 // ];
 
 const QuestionsPage = () => {
-  const [sortType, setSortType] = useState("Newest");
+  const [sortType, setSortType] = useState("Top");
 
   const [loadedQns, setLoadedQns] = useState();
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
@@ -90,7 +90,7 @@ const QuestionsPage = () => {
             <div className="questions-tabs">
               <span>{loadedQns.length} questions</span>
               <ButtonGroup
-                buttons={["Newest", "Top", "Views", "Oldest"]}
+                buttons={["Top", "Newest", "Oldest"]}
                 selected={sortType}
                 setSelected={setSortType}
               />
