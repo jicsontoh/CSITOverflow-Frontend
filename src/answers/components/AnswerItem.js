@@ -15,85 +15,65 @@ import { AuthContext } from "../../shared/context/auth-context";
 
 import "./AnswerItem.css";
 
-const AnswerItem = ({
-  answer: {
-    body,
-    user_id,
-    up_votes,
-    down_votes,
-    gravatar,
-    id,
-    created_at,
-    username,
-  },
-}) => {
+const AnswerItem = ({ answer }) => {
   const auth = useContext(AuthContext);
   const history = useNavigate();
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
 
-  const [votes, setVotes] = useState(up_votes - down_votes);
+  const [loadedAns, setLoadedAns] = useState(answer);
+  const [votes, setVotes] = useState(
+    loadedAns.up_votes.length - loadedAns.down_votes.length
+  );
 
-  const updateVote = async () => {
+  const updateVote = async (props) => {
     try {
-      await sendRequest(
-        `http://localhost:8080/api/answers/${id}`,
+      const responseData = await sendRequest(
+        `http://localhost:8080/api/answers/vote/${loadedAns.id}`,
         "PATCH",
         JSON.stringify({
-          body: body,
-          up_votes: up_votes,
-          down_votes: down_votes,
+          up_id: props.up,
+          down_id: props.down,
         }),
         {
           "Content-Type": "application/json",
         }
       );
+      setLoadedAns(responseData.ans);
     } catch (err) {}
   };
 
   const vote = (action) => {
     if (action === "up" && auth.isLoggedIn) {
-      up_votes += 1;
-      setVotes(votes + 1);
-      updateVote();
+      if (!loadedAns.up_votes.includes(auth.userId)) {
+        setVotes(votes + 1);
+      } else {
+        setVotes(votes - 1);
+      }
+      updateVote({ up: auth.userId });
     } else if (action === "down" && auth.isLoggedIn) {
-      down_votes += 1;
-      setVotes(votes - 1);
-      updateVote();
+      if (!loadedAns.down_votes.includes(auth.userId)) {
+        setVotes(votes - 1);
+      } else {
+        setVotes(votes + 1);
+      }
+      updateVote({ down: auth.userId });
     } else {
       history("/login");
     }
   };
 
-  //   const vote = (action) => {
-  //     if (action === "up" && auth.isLoggedIn) {
-  //       if (!loadedQns.up_votes.includes(auth.userId)) {
-  //         setVotes(votes + 1);
-  //       } else {
-  //         setVotes(votes - 1);
-  //       }
-  //       updateVote({ up: auth.userId });
-  //     } else if (action === "down" && auth.isLoggedIn) {
-  //       if (!loadedQns.down_votes.includes(auth.userId)) {
-  //         setVotes(votes - 1);
-  //       } else {
-  //         setVotes(votes + 1);
-  //       }
-  //       updateVote({ down: auth.userId });
-  //     } else {
-  //       history("/login");
-  //     }
-  //   };
-
   return (
     <React.Fragment>
       <ErrorModal error={error} onClear={clearError} />
       {isLoading && <LoadingSpinner asOverlay />}
-      {!isLoading && (
+      {!isLoading && loadedAns && (
         <div className="answer-layout">
           <div className="vote-cell">
             <div className="vote-container">
               <button
-                className="vote-up"
+                className={
+                  loadedAns.up_votes.includes(auth.userId) && "button-selected"
+                }
                 title="This answer is useful (click again to undo)"
                 onClick={() => vote("up")}
               >
@@ -101,7 +81,10 @@ const AnswerItem = ({
               </button>
               <div className="vote-count fc-black-500">{votes}</div>
               <button
-                className="vote-down"
+                className={
+                  loadedAns.down_votes.includes(auth.userId) &&
+                  "button-selected"
+                }
                 title="This answer is not useful (click again to undo)"
                 onClick={() => vote("down")}
               >
@@ -110,28 +93,16 @@ const AnswerItem = ({
             </div>
           </div>
           <div className="answer-item">
-            <div className="answer-content fc-black-800">{body}</div>
+            <div className="answer-content fc-black-800">{loadedAns.body}</div>
             <div className="answer-actions">
               <div className="action-btns">
-                <div className="answer-menu">
-                  {/* {!auth.loading && !auth.isLoggedIn && (
-                  <Link
-                    className="s-link s-link__danger"
-                    style={{ paddingLeft: "4px" }}
-                    title="Delete the answer"
-                    //   onClick={(e) => deleteAnswer(id)}
-                    to={`/questions/${qns_id}`}
-                  >
-                    delete
-                  </Link>
-                )} */}
-                </div>
+                <div className="answer-menu"></div>
               </div>
               <UserCard
-                created_at={created_at}
-                user_id={user_id}
-                gravatar={gravatar}
-                username={username}
+                created_at={loadedAns.created_at}
+                user_id={loadedAns.user_id}
+                gravatar={loadedAns.gravatar}
+                username={loadedAns.username}
                 dateType={"answered"}
                 backgroundColor={"transparent"}
               />

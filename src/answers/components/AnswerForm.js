@@ -44,7 +44,7 @@ const AnswerForm = (props) => {
           "Content-Type": "application/json",
         }
       );
-      history(`/questions/${qnsId}`);
+      history(0);
     } catch (err) {}
   };
 

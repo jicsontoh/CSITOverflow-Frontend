@@ -8,7 +8,7 @@ import handleSorting from "../../shared/util/handleSorting";
 const QuestionList = (props) => {
   if (props.items.length === 0) {
     return (
-      <div className="center">
+      <div className="questions-grid">
         <h1>No Questions found</h1>
       </div>
     );
