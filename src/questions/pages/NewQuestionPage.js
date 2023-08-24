@@ -38,6 +38,7 @@ const NewQuestionPage = (props) => {
         }),
         {
           "Content-Type": "application/json",
+          Authorization: "Bearer " + auth.token,
         }
       );
       history("/");

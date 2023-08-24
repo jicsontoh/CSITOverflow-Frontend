@@ -101,6 +101,7 @@ const QuestionItem = (props) => {
         }),
         {
           "Content-Type": "application/json",
+          Authorization: "Bearer " + auth.token,
         }
       );
       setLoadedQns(responseData.qns);

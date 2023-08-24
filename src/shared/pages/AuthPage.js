@@ -85,7 +85,7 @@ const AuthPage = (props) => {
             "Content-Type": "application/json",
           }
         );
-        auth.login(responseData.user.id);
+        auth.login(responseData.user.id, responseData.token);
       } catch (err) {}
     } else {
       try {
@@ -102,7 +102,7 @@ const AuthPage = (props) => {
             "Content-Type": "application/json",
           }
         );
-        auth.login(responseData.user.id);
+        auth.login(responseData.user.id, responseData.token);
       } catch (err) {}
     }
   };
