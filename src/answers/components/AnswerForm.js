@@ -42,6 +42,7 @@ const AnswerForm = (props) => {
         }),
         {
           "Content-Type": "application/json",
+          Authorization: "Bearer " + auth.token,
         }
       );
       history(0);

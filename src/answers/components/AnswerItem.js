@@ -36,6 +36,7 @@ const AnswerItem = ({ answer }) => {
         }),
         {
           "Content-Type": "application/json",
+          Authorization: "Bearer " + auth.token,
         }
       );
       setLoadedAns(responseData.ans);
