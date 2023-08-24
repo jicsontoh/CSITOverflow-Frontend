@@ -38,7 +38,6 @@ const AnswerForm = (props) => {
         JSON.stringify({
           answer: formData.answer,
           qns_id: qnsId,
-          user_id: auth.userId,
         }),
         {
           "Content-Type": "application/json",

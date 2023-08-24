@@ -34,7 +34,6 @@ const NewQuestionPage = (props) => {
           title: formData.title,
           tags: formData.tags,
           question: formData.question,
-          user_id: auth.userId,
         }),
         {
           "Content-Type": "application/json",
