@@ -79,7 +79,7 @@ const QuestionItem = (props) => {
     const fetchQns = async () => {
       try {
         const responseData = await sendRequest(
-          `http://localhost:8080/api/questions/${qnsId}`
+          process.env.REACT_APP_API_URL + `/api/questions/${qnsId}`
         );
         setLoadedQns(responseData.qns);
         setVotes(
@@ -93,7 +93,7 @@ const QuestionItem = (props) => {
   const updateVote = async (props) => {
     try {
       const responseData = await sendRequest(
-        `http://localhost:8080/api/questions/vote/${qnsId}`,
+        process.env.REACT_APP_API_URL + `/api/questions/vote/${qnsId}`,
         "PATCH",
         JSON.stringify({
           up_id: props.up,

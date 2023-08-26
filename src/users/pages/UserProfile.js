@@ -22,12 +22,12 @@ const UserProfile = (props) => {
     const fetchUser = async () => {
       try {
         const responseData = await sendRequest(
-          `http://localhost:8080/api/users/${userId}`
+          process.env.REACT_APP_API_URL + `/api/users/${userId}`
         );
         setLoadedUser(responseData.user);
 
         const data = await sendRequest(
-          `http://localhost:8080/api/users/questions/${userId}`
+          process.env.REACT_APP_API_URL + `/api/users/questions/${userId}`
         );
         setLoadedQns(data.qns);
       } catch (err) {}

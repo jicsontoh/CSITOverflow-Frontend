@@ -28,7 +28,7 @@ const AnswerItem = ({ answer }) => {
   const updateVote = async (props) => {
     try {
       const responseData = await sendRequest(
-        `http://localhost:8080/api/answers/vote/${loadedAns.id}`,
+        process.env.REACT_APP_API_URL + `/api/answers/vote/${loadedAns.id}`,
         "PATCH",
         JSON.stringify({
           up_id: props.up,

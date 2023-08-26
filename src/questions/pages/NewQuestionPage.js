@@ -28,7 +28,7 @@ const NewQuestionPage = (props) => {
 
     try {
       await sendRequest(
-        "http://localhost:8080/api/questions/new",
+        process.env.REACT_APP_API_URL + "/api/questions/new",
         "POST",
         JSON.stringify({
           title: formData.title,

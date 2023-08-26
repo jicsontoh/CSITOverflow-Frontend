@@ -85,7 +85,7 @@ const UsersPage = (props) => {
     const fetchUsers = async () => {
       try {
         const responseData = await sendRequest(
-          `http://localhost:8080/api/users`
+          process.env.REACT_APP_API_URL + `/api/users`
         );
         setLoadedUsers(responseData.users);
       } catch (err) {}

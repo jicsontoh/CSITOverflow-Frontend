@@ -33,7 +33,7 @@ const AnswerForm = (props) => {
 
     try {
       await sendRequest(
-        "http://localhost:8080/api/answers/new",
+        process.env.REACT_APP_API_URL + "/api/answers/new",
         "POST",
         JSON.stringify({
           answer: formData.answer,

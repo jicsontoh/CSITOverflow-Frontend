@@ -75,7 +75,7 @@ const AuthPage = (props) => {
     if (props.action === "Log in") {
       try {
         const responseData = await sendRequest(
-          "http://localhost:8080/api/users/login",
+          process.env.REACT_APP_API_URL + "/api/users/login",
           "POST",
           JSON.stringify({
             username: username,
@@ -90,7 +90,7 @@ const AuthPage = (props) => {
     } else {
       try {
         const responseData = await sendRequest(
-          "http://localhost:8080/api/users/signup",
+          process.env.REACT_APP_API_URL + "/api/users/signup",
           "POST",
           JSON.stringify({
             username: username,

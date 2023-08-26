@@ -20,7 +20,7 @@ const QuestionsPage = () => {
     const fetchQns = async () => {
       try {
         const responseData = await sendRequest(
-          `http://localhost:8080/api/questions`
+          process.env.REACT_APP_API_URL + `/api/questions`
         );
         setLoadedQns(responseData.questions);
       } catch (err) {}

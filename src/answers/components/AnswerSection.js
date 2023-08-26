@@ -56,7 +56,7 @@ const AnswerSection = (props) => {
     const fetchAns = async () => {
       try {
         const responseData = await sendRequest(
-          `http://localhost:8080/api/answers/${qnsId}`
+          process.env.REACT_APP_API_URL + `/api/answers/${qnsId}`
         );
         setLoadedAns(responseData.ans);
       } catch (err) {}
