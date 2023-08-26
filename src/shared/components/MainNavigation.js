@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStackOverflow } from "@fortawesome/fontawesome-free-brands";
 
@@ -11,15 +11,18 @@ import SearchBox from "./SearchBox";
 import "./MainNavigation.css";
 
 const MainNavigation = (props) => {
-  const [setSearch] = useState("");
+  const [search, setSearch] = useState("");
 
-  // const search = () => {
-  //   console.log("searching...");
-  // };
+  const history = useNavigate();
 
   const handleChange = (e) => {
     e.preventDefault();
     setSearch(e.target.value);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    history(`/questions/search/${search}`);
   };
 
   return (
@@ -35,6 +38,7 @@ const MainNavigation = (props) => {
         <SearchBox
           placeholder={"Search..."}
           handleChange={handleChange}
+          handleSubmit={handleSubmit}
           width={"550px"}
         />
         <nav className="main-navigation__header-nav">

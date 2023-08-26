@@ -13,6 +13,7 @@ import QuestionItem from "./questions/components/QuestionItem";
 import { AuthContext } from "./shared/context/auth-context";
 import UserProfile from "./users/pages/UserProfile";
 import { useAuth } from "./shared/hooks/auth-hook";
+import SearchQuestionPage from "./questions/pages/SearchQuestionPage";
 
 function App() {
   const { token, login, logout, userId } = useAuth();
@@ -29,6 +30,10 @@ function App() {
         <Route path="/questions/new" element={<NewQuestionPage />} />
         <Route path="/questions" element={<QuestionsPage />} />
         <Route path="/questions/:questionId" element={<QuestionItem />} />
+        <Route
+          path="/questions/search/:query"
+          element={<SearchQuestionPage />}
+        />
         <Route
           path="/error404"
           element={<h1 className="center">No such path</h1>}
