@@ -52,6 +52,7 @@ const NewQuestionPage = (props) => {
       {isLoading && <LoadingSpinner asOverlay />}
       <div className="auth-page">
         <div className="register-content">
+          <label className="top-label">Asking a Question?</label>
           <div className="register-grid">
             <div>
               <div className="question-container">
