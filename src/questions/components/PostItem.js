@@ -28,7 +28,9 @@ const PostItem = (props) => {
       <div className="stats-container fc-black-500">
         <div className="stats">
           <div className="vote">
-            <div className="count-text">{props.votes} votes</div>
+            <div className="count-text">
+              {props.votes} {props.votes == 1 ? " vote" : " votes"}
+            </div>
           </div>
           {props.answer_count > 0 ? answerVoteUp : answerVoteDown}
         </div>
