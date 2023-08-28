@@ -29,11 +29,11 @@ function App() {
         <Route path="/users/:userId" element={<UserProfile />} />
         <Route path="/questions/new" element={<NewQuestionPage />} />
         <Route path="/questions" element={<QuestionsPage />} />
-        <Route path="/questions/:questionId" element={<QuestionItem />} />
         <Route
-          path="/questions/search/:query"
+          path="/questions/search/:query?"
           element={<SearchQuestionPage />}
         />
+        <Route path="/questions/:questionId" element={<QuestionItem />} />
         <Route
           path="/error404"
           element={<h1 className="center">No such path</h1>}
@@ -52,6 +52,10 @@ function App() {
         <Route path="/users/:userId" element={<UserProfile />} />
         <Route path="/questions" element={<QuestionsPage />} />
         <Route path="/questions/new" element={<LoginPage />} />
+        <Route
+          path="/questions/search/:query?"
+          element={<SearchQuestionPage />}
+        />
         <Route path="/questions/:questionId" element={<QuestionItem />} />
         <Route
           path="/error404"

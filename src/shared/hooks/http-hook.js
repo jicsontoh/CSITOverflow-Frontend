@@ -1,10 +1,12 @@
 import { useState, useCallback, useRef, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const useHttpClient = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState();
 
   const activeHttpRequests = useRef([]);
+  const history = useNavigate();
 
   const sendRequest = useCallback(
     async (url, method = "GET", body = null, headers = {}) => {
@@ -43,6 +45,7 @@ export const useHttpClient = () => {
 
   const clearError = () => {
     setError(null);
+    history(-1);
   };
 
   useEffect(() => {

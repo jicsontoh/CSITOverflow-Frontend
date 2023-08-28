@@ -14,6 +14,7 @@ const SearchQuestionPage = () => {
   const [sortType, setSortType] = useState("Popular");
 
   const [loadedQns, setLoadedQns] = useState();
+  const [loaded, setLoaded] = useState(false);
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
 
   const query = useParams().query;
@@ -25,6 +26,7 @@ const SearchQuestionPage = () => {
           process.env.REACT_APP_API_URL + `/api/questions/search/${query}`
         );
         setLoadedQns(responseData.questions);
+        setLoaded(true);
       } catch (err) {}
     };
     fetchQns();
@@ -34,7 +36,7 @@ const SearchQuestionPage = () => {
     <React.Fragment>
       <ErrorModal error={error} onClear={clearError} />
       {isLoading && <LoadingSpinner asOverlay />}
-      {!isLoading && loadedQns && (
+      {!isLoading && loaded && (
         <div className="page">
           <SideBar />
           <div id="mainbar" className="questions-page">
