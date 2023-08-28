@@ -1,8 +1,12 @@
 import React from "react";
+import { $getRoot, $getSelection } from "lexical";
 import { Link } from "react-router-dom";
 
 import UserCard from "../../users/components/UserCard";
 // import TagBadge from "../../tags/components/TagBadge";
+import { LexicalComposer } from "@lexical/react/LexicalComposer";
+import { RichTextPlugin } from "@lexical/react/LexicalRichTextPlugin";
+import { ContentEditable } from "@lexical/react/LexicalContentEditable";
 
 import "./PostItem.css";
 
@@ -29,7 +33,7 @@ const PostItem = (props) => {
         <div className="stats">
           <div className="vote">
             <div className="count-text">
-              {props.votes} {props.votes == 1 ? " vote" : " votes"}
+              {props.votes} {props.votes === 1 ? " vote" : " votes"}
             </div>
           </div>
           {props.answer_count > 0 ? answerVoteUp : answerVoteDown}
@@ -39,7 +43,15 @@ const PostItem = (props) => {
         <h3>
           <Link to={`/questions/${props.id}`}>{props.title}</Link>
         </h3>
-        <div className="brief">{props.body}</div>
+        <div className="brief">
+          <LexicalComposer
+            initialConfig={{
+              editorState: props.body,
+            }}
+          >
+            <RichTextPlugin contentEditable={<ContentEditable />} />
+          </LexicalComposer>
+        </div>
         <UserCard
           created_at={props.created_at}
           user_id={props.user_id}

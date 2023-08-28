@@ -1,4 +1,5 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useRef } from "react";
+import { $getRoot, $getSelection } from "lexical";
 import { AuthContext } from "../../shared/context/auth-context";
 import { useNavigate } from "react-router-dom";
 
@@ -6,7 +7,7 @@ import LoadingSpinner from "../../shared/UIElements/LoadingSpinner";
 import ErrorModal from "../../shared/UIElements/ErrorModal";
 import { useHttpClient } from "../../shared/hooks/http-hook";
 
-import Editor from "../../shared/markdown/Editor";
+import { Editor } from "../../shared/markdown/Editor";
 
 import "./NewQuestionPage.css";
 
@@ -27,15 +28,19 @@ const NewQuestionPage = (props) => {
 
   const postQuestionHandler = async (event) => {
     event.preventDefault();
-
+    // const textContent = data.read(() =>
+    //   //You could change getTextContent() for your purpose
+    //   $getRoot().getTextContent()
+    // );
     try {
+      const data = JSON.stringify(editorRef.current.getEditorState());
       await sendRequest(
         process.env.REACT_APP_API_URL + "/api/questions/new",
         "POST",
         JSON.stringify({
           title: formData.title,
           tags: formData.tags,
-          question: formData.question,
+          question: data,
         }),
         {
           "Content-Type": "application/json",
@@ -45,6 +50,8 @@ const NewQuestionPage = (props) => {
       history("/");
     } catch (err) {}
   };
+
+  const editorRef = useRef();
 
   return (
     <React.Fragment>
@@ -67,7 +74,6 @@ const NewQuestionPage = (props) => {
                       className="form-input s-input"
                       type="text"
                       name="title"
-                      // value={username}
                       onChange={(e) => onChange(e)}
                       id="title"
                       required
@@ -79,7 +85,7 @@ const NewQuestionPage = (props) => {
                       Include all the information someone would need to answer
                       your question
                     </label>
-                    <Editor id="question" />
+                    <Editor ref={editorRef} />
                     {/* <textarea
                       className="form-input s-input"
                       type="text"
@@ -102,9 +108,7 @@ const NewQuestionPage = (props) => {
                   </div>
                 </form>
               </div>
-              <div className="redirects fc-black-500">
-                {/* {action === "Sign up" ? signUpLink : logInLink} */}
-              </div>
+              <div className="redirects fc-black-500"></div>
             </div>
           </div>
         </div>
