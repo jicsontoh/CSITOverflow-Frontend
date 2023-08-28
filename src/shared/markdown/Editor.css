@@ -306,6 +306,7 @@
     cursor: pointer;
     vertical-align: middle;
     color: white;
+    justify-content: center;
   }
   
   .toolbar button.toolbar-item:disabled {
@@ -340,7 +341,7 @@
   }
   
   .toolbar .toolbar-item:hover:not([disabled]) {
-    background-color: #eee;
+    background-color:  rgba(223, 232, 250, 0.3);
   }
   
   .toolbar .divider {

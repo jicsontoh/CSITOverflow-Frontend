@@ -72,18 +72,6 @@ const NewQuestionPage = (props) => {
                       required
                     />
                   </div>
-                  {/* <div>
-                    <label className="form-label s-label">Tags</label>
-                    <input
-                      className="form-input s-input"
-                      type="text"
-                      name="tags"
-                      // value={username}
-                      onChange={(e) => onChange(e)}
-                      id="tags"
-                      required
-                    />
-                  </div> */}
                   <div>
                     <label className="form-label s-label">Body</label>
                     <label className="form-sub-label">
