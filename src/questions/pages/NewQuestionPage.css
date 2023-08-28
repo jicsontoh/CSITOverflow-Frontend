@@ -22,7 +22,7 @@
   
   .question-container .fs-caption {
     color: #6a737c;
-    font-size: 12px;
+    font-size: 14px;
   }
   
   .question-container .license {
@@ -31,6 +31,11 @@
   
   .question-container .form-label {
     font-weight: 600;
+    color: white;
+  }
+
+  .form-sub-label {
+    display: block;
     color: #a4a9ae;
   }
   

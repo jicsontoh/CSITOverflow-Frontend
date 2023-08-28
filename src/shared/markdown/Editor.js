@@ -23,12 +23,10 @@ import AutoLinkPlugin from "./plugins/AutoLinkPlugin";
 import "./Editor.css";
 
 function Placeholder() {
-  return <div className="editor-placeholder">Enter some rich text...</div>;
+  return <div className="editor-placeholder"></div>;
 }
 
 const editorConfig = {
-  // The editor theme
-  //   theme: ExampleTheme,
   // Handling of errors during update
   onError(error) {
     throw error;

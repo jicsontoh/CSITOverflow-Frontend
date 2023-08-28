@@ -58,7 +58,10 @@ const NewQuestionPage = (props) => {
                 <form className="login-form" onSubmit={postQuestionHandler}>
                   <div>
                     <label className="form-label s-label">Title</label>
-
+                    <label className="form-sub-label">
+                      Be specific and imagine you’re asking a question to
+                      another person
+                    </label>
                     <input
                       className="form-input s-input"
                       type="text"
@@ -82,8 +85,12 @@ const NewQuestionPage = (props) => {
                     />
                   </div> */}
                   <div>
-                    <label className="form-label s-label">Question</label>
-                    <Editor />
+                    <label className="form-label s-label">Body</label>
+                    <label className="form-sub-label">
+                      Include all the information someone would need to answer
+                      your question
+                    </label>
+                    <Editor id="question" />
                     {/* <textarea
                       className="form-input s-input"
                       type="text"

@@ -12,24 +12,29 @@
   }
   
   .editor-inner {
-    background: #fff;
+    background: #2d2d2d;
+    border: 1px solid hsl(210,5.5%,43.5%);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    color: white;
     position: relative;
   }
   
   .editor-input {
     min-height: 150px;
+    height: 300px;
     resize: none;
-    font-size: 15px;
+    font-size: 14px;
     caret-color: rgb(5, 5, 5);
     position: relative;
     tab-size: 1;
     outline: 0;
     padding: 15px 10px;
-    caret-color: #444;
+    caret-color: white;
   }
   
   .editor-placeholder {
-    color: #999;
+    color: #a4a9ae;
     overflow: hidden;
     position: absolute;
     text-overflow: ellipsis;
@@ -62,31 +67,15 @@
   }
   
   .editor-text-code {
-    background-color: rgb(240, 242, 245);
+    background-color: white;
     padding: 1px 0.25rem;
     font-family: Menlo, Consolas, Monaco, monospace;
-    font-size: 94%;
+    font-size: 100%;
   }
   
   .editor-link {
     color: rgb(33, 111, 219);
     text-decoration: none;
-  }
-  
-  .tree-view-output {
-    display: block;
-    background: #222;
-    color: #fff;
-    padding: 5px;
-    font-size: 12px;
-    white-space: pre-wrap;
-    margin: 1px auto 10px auto;
-    max-height: 250px;
-    position: relative;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-    overflow: auto;
-    line-height: 14px;
   }
   
   .editor-code {
@@ -300,10 +289,11 @@
   .toolbar {
     display: flex;
     margin-bottom: 1px;
-    background: #fff;
+    background: #2d2d2d;
     padding: 4px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
+    border: 1px solid hsl(210,5.5%,43.5%);
     vertical-align: middle;
   }
   
@@ -315,6 +305,7 @@
     padding: 8px;
     cursor: pointer;
     vertical-align: middle;
+    color: white;
   }
   
   .toolbar button.toolbar-item:disabled {
