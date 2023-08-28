@@ -6,6 +6,8 @@ import LoadingSpinner from "../../shared/UIElements/LoadingSpinner";
 import ErrorModal from "../../shared/UIElements/ErrorModal";
 import { useHttpClient } from "../../shared/hooks/http-hook";
 
+import Editor from "../../shared/markdown/Editor";
+
 import "./NewQuestionPage.css";
 
 const NewQuestionPage = (props) => {
@@ -56,6 +58,7 @@ const NewQuestionPage = (props) => {
                 <form className="login-form" onSubmit={postQuestionHandler}>
                   <div>
                     <label className="form-label s-label">Title</label>
+
                     <input
                       className="form-input s-input"
                       type="text"
@@ -80,7 +83,8 @@ const NewQuestionPage = (props) => {
                   </div> */}
                   <div>
                     <label className="form-label s-label">Question</label>
-                    <textarea
+                    <Editor />
+                    {/* <textarea
                       className="form-input s-input"
                       type="text"
                       name="question"
@@ -89,7 +93,7 @@ const NewQuestionPage = (props) => {
                       onChange={(e) => onChange(e)}
                       id="question"
                       required
-                    />
+                    /> */}
                   </div>
                   <div className="grid gs4 gsy fd-column js-auth-item ">
                     <button

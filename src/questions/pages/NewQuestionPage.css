@@ -1,5 +1,5 @@
 .question-container {
-    width: 520px;
+    width: 100%;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05), 0 20px 48px rgba(0, 0, 0, 0.05), 0 1px 4px rgba(0, 0, 0, 0.1);
     padding: 24px;
     margin-left: auto;
