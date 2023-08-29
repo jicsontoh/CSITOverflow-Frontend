@@ -24,8 +24,9 @@
     font-size: 14px;
   }
   
-  .answer-grid .s-textarea.rich-text-editor-container {
-    padding: 0;
+.rich-text-editor-container {
+    display: flex;
+    align-self: baseline;
   }
 
   .answer-input {

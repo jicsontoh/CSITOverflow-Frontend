@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 // import { connect } from "react-redux";
 // import PropTypes from "prop-types";
@@ -10,6 +10,7 @@ import { AuthContext } from "../../shared/context/auth-context";
 import LoadingSpinner from "../../shared/UIElements/LoadingSpinner";
 import ErrorModal from "../../shared/UIElements/ErrorModal";
 import { useHttpClient } from "../../shared/hooks/http-hook";
+import { Editor } from "../../shared/markdown/Editor";
 
 import "./AnswerForm.css";
 
@@ -20,6 +21,8 @@ const AnswerForm = (props) => {
   const qnsId = props.qnsId;
 
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
+
+  const editorRef = useRef();
 
   const [formData, setFormData] = useState({
     answer: "",
@@ -32,11 +35,12 @@ const AnswerForm = (props) => {
     event.preventDefault();
 
     try {
+      const data = JSON.stringify(editorRef.current.getEditorState());
       await sendRequest(
         process.env.REACT_APP_API_URL + "/api/answers/new",
         "POST",
         JSON.stringify({
-          answer: formData.answer,
+          answer: data,
           qns_id: qnsId,
         }),
         {
@@ -57,8 +61,8 @@ const AnswerForm = (props) => {
           <div className="answer-grid">
             <label className=" fc-black-800">Your Answer</label>
             <div className="rich-text-editor-container">
-              {/* <MDEditor value={null} onChange={null} /> */}
-              <textarea
+              <Editor ref={editorRef} />
+              {/* <textarea
                 className="answer-input s-input"
                 type="text"
                 name="answer"
@@ -67,7 +71,7 @@ const AnswerForm = (props) => {
                 // value={username}
                 id="answer"
                 required
-              />
+              /> */}
             </div>
             <button className="s-btn s-btn__primary">Post Your Answer</button>
           </div>
