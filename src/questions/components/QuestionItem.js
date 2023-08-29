@@ -16,9 +16,6 @@ import AnswerSection from "../../answers/components/AnswerSection";
 import LoadingSpinner from "../../shared/UIElements/LoadingSpinner";
 import ErrorModal from "../../shared/UIElements/ErrorModal";
 import { useHttpClient } from "../../shared/hooks/http-hook";
-import { LexicalComposer } from "@lexical/react/LexicalComposer";
-import { RichTextPlugin } from "@lexical/react/LexicalRichTextPlugin";
-import { ContentEditable } from "@lexical/react/LexicalContentEditable";
 import Viewer from "../../shared/markdown/Viewer";
 
 import "./QuestionItem.css";

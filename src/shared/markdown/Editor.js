@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import ExampleTheme from "./themes/ExampleTheme";
-import { $getRoot, $getSelection } from "lexical";
+
 import { LexicalComposer } from "@lexical/react/LexicalComposer";
 import { RichTextPlugin } from "@lexical/react/LexicalRichTextPlugin";
 import { ContentEditable } from "@lexical/react/LexicalContentEditable";
@@ -16,7 +16,6 @@ import { AutoLinkNode, LinkNode } from "@lexical/link";
 import { LinkPlugin } from "@lexical/react/LexicalLinkPlugin";
 import { ListPlugin } from "@lexical/react/LexicalListPlugin";
 import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
-import { OnChangePlugin } from "@lexical/react/LexicalOnChangePlugin";
 import { MarkdownShortcutPlugin } from "@lexical/react/LexicalMarkdownShortcutPlugin";
 import { TRANSFORMERS } from "@lexical/markdown";
 
@@ -48,14 +47,14 @@ const editorConfig = {
   ],
 };
 
-function onChange(editorState) {
-  editorState.read(() => {
-    // Read the contents of the EditorState here.
-    const root = $getRoot();
-    const selection = $getSelection();
-    console.log((root, selection));
-  });
-}
+// function onChange(editorState) {
+//   editorState.read(() => {
+//     // Read the contents of the EditorState here.
+//     const root = $getRoot();
+//     const selection = $getSelection();
+//     console.log((root, selection));
+//   });
+// }
 
 const EditorCapturePlugin = React.forwardRef((props, ref) => {
   const [editor] = useLexicalComposerContext();

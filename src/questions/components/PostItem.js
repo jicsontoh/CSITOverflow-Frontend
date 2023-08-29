@@ -1,5 +1,4 @@
 import React from "react";
-import { $getRoot, $getSelection } from "lexical";
 import { Link } from "react-router-dom";
 
 import UserCard from "../../users/components/UserCard";

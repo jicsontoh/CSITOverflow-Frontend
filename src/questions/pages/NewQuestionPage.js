@@ -1,5 +1,4 @@
 import React, { useState, useContext, useRef } from "react";
-import { $getRoot, $getSelection } from "lexical";
 import { AuthContext } from "../../shared/context/auth-context";
 import { useNavigate } from "react-router-dom";
 
