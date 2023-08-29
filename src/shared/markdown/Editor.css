@@ -67,7 +67,7 @@
   }
   
   .editor-text-code {
-    background-color: white;
+    background-color: #777;
     padding: 1px 0.25rem;
     font-family: Menlo, Consolas, Monaco, monospace;
     font-size: 100%;
@@ -79,7 +79,7 @@
   }
   
   .editor-code {
-    background-color: rgb(240, 242, 245);
+    background-color: #777;
     font-family: Menlo, Consolas, Monaco, monospace;
     display: block;
     padding: 8px 8px 8px 52px;
@@ -154,6 +154,11 @@
     margin: 0;
     margin-bottom: 8px;
     position: relative;
+  }
+
+  .editor-paragraph code {
+    background-color: #777
+    
   }
   
   .editor-paragraph:last-child {
