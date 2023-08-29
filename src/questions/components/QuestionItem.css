@@ -38,11 +38,11 @@
     border-bottom: 1px solid #4a4e51;
   }
   
-  .questions-page .questions {
+  .question {
     float: none;
     clear: both;
     width: auto;
-    border-top: 1px solid #4a4e51;
+    /* border-top: 1px solid #4a4e51; */
   }
 
   .question .post-layout {

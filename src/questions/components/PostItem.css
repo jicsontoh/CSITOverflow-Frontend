@@ -96,8 +96,11 @@
   .posts .summary .brief {
     padding: 0 0 5px 0;
     margin: 0;
-    font-family: Arial, serif;
     font-size: 14px;
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-height: 100px;
   }
   
   .posts .summary .question-user {

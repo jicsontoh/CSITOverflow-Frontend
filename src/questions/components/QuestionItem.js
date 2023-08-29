@@ -19,6 +19,7 @@ import { useHttpClient } from "../../shared/hooks/http-hook";
 import { LexicalComposer } from "@lexical/react/LexicalComposer";
 import { RichTextPlugin } from "@lexical/react/LexicalRichTextPlugin";
 import { ContentEditable } from "@lexical/react/LexicalContentEditable";
+import Viewer from "../../shared/markdown/Viewer";
 
 import "./QuestionItem.css";
 
@@ -149,13 +150,7 @@ const QuestionItem = (props) => {
                   )}
 
                   <div className="question-body">
-                    <LexicalComposer
-                      initialConfig={{
-                        editorState: loadedQns.body,
-                      }}
-                    >
-                      <RichTextPlugin contentEditable={<ContentEditable />} />
-                    </LexicalComposer>
+                    <Viewer body={loadedQns.body} />
                   </div>
                   <div className="post-cell">
                     <div className="post-actions fc-black-800">

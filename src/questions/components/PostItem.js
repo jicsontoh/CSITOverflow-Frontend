@@ -4,9 +4,7 @@ import { Link } from "react-router-dom";
 
 import UserCard from "../../users/components/UserCard";
 // import TagBadge from "../../tags/components/TagBadge";
-import { LexicalComposer } from "@lexical/react/LexicalComposer";
-import { RichTextPlugin } from "@lexical/react/LexicalRichTextPlugin";
-import { ContentEditable } from "@lexical/react/LexicalContentEditable";
+import Viewer from "../../shared/markdown/Viewer";
 
 import "./PostItem.css";
 
@@ -44,13 +42,7 @@ const PostItem = (props) => {
           <Link to={`/questions/${props.id}`}>{props.title}</Link>
         </h3>
         <div className="brief">
-          <LexicalComposer
-            initialConfig={{
-              editorState: props.body,
-            }}
-          >
-            <RichTextPlugin contentEditable={<ContentEditable />} />
-          </LexicalComposer>
+          <Viewer body={props.body} />
         </div>
         <UserCard
           created_at={props.created_at}

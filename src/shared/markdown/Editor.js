@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import ExampleTheme from "./themes/ExampleTheme";
 import { $getRoot, $getSelection } from "lexical";
 import { LexicalComposer } from "@lexical/react/LexicalComposer";
 import { RichTextPlugin } from "@lexical/react/LexicalRichTextPlugin";
@@ -26,6 +27,7 @@ import AutoLinkPlugin from "./plugins/AutoLinkPlugin";
 import "./Editor.css";
 
 const editorConfig = {
+  theme: ExampleTheme,
   // Handling of errors during update
   onError(error) {
     throw error;
