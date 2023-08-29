@@ -1,8 +1,5 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-// import { connect } from "react-redux";
-// import PropTypes from "prop-types";
-// import { deleteAnswer } from "../../../../redux/answers/answers.actions";
 
 import { ReactComponent as UpVote } from "../../assets/ArrowUpLg.svg";
 import { ReactComponent as DownVote } from "../../assets/ArrowDownLg.svg";
@@ -12,6 +9,7 @@ import LoadingSpinner from "../../shared/UIElements/LoadingSpinner";
 import ErrorModal from "../../shared/UIElements/ErrorModal";
 import { useHttpClient } from "../../shared/hooks/http-hook";
 import { AuthContext } from "../../shared/context/auth-context";
+import Viewer from "../../shared/markdown/Viewer";
 
 import "./AnswerItem.css";
 
@@ -94,7 +92,9 @@ const AnswerItem = ({ answer }) => {
             </div>
           </div>
           <div className="answer-item">
-            <div className="answer-content fc-black-800">{loadedAns.body}</div>
+            <div className="answer-content fc-black-800">
+              <Viewer body={loadedAns.body} />
+            </div>
             <div className="answer-actions">
               <div className="action-btns">
                 <div className="answer-menu"></div>

@@ -18,8 +18,6 @@ const UpdatePlugin = ({ initialConfig }) => {
 };
 
 const Viewer = ({ body }) => {
-  console.log(body);
-
   return (
     <React.Fragment>
       <LexicalComposer

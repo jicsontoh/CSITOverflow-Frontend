@@ -2,20 +2,20 @@ import React, { useState, useEffect } from "react";
 // import { connect } from "react-redux";
 // import PropTypes from "prop-types";
 // import { getAnswers } from "../../../redux/answers/answers.actions";
-import handleSorting from "../../shared/util/handleSorting";
 
 // import AnswerItem from "./AnswerItem/AnswerItem.component";
 import LoadingSpinner from "../../shared/UIElements/LoadingSpinner";
 import ErrorModal from "../../shared/UIElements/ErrorModal";
 import { useHttpClient } from "../../shared/hooks/http-hook";
+import ButtonGroup from "../../shared/buttons/ButtonGroup";
 
 import AnswerForm from "./AnswerForm";
-import AnswerItem from "./AnswerItem";
+import AnswerList from "./AnswerList";
 
 import "./AnswerSection.css";
 
 const AnswerSection = (props) => {
-  //   const [sortType, setSortType] = useState("Newest");
+  const [sortType, setSortType] = useState("Popular");
   const [loadedAns, setLoadedAns] = useState();
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
 
@@ -50,14 +50,14 @@ const AnswerSection = (props) => {
                       {loadedAns.length > 1 ? "Answers" : "Answer"}
                     </h1>
                   </div>
+                  {/* <ButtonGroup
+                    buttons={["Popular", "Newest", "Oldest"]}
+                    selected={sortType}
+                    setSelected={setSortType}
+                  /> */}
                 </div>
               </div>
-              {loadedAns.sort(handleSorting("Newest")).map((a) => (
-                <div className="answers">
-                  <AnswerItem answer={a} />
-                  <div className="answer-line"></div>
-                </div>
-              ))}
+              <AnswerList items={loadedAns} sortType={sortType} />
             </React.Fragment>
           )}
           <div className="add-answer">{<AnswerForm qnsId={qnsId} />}</div>

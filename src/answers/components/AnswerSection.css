@@ -19,7 +19,7 @@
   }
   
   .answer .answer-header .answer-sub-header .answer-headline {
-    flex: 1 auto !important;
+    padding-right: 73%;
   }
   
   .answer .answer-header .answer-sub-header .answer-headline h2 {
