@@ -45,14 +45,12 @@ const UserProfile = (props) => {
           <div id="mainbar" className="user-main-bar pl24 pt24">
             <div className="user-card">
               <UserSection user={loadedUser} />
-              <div className="questions">
-                {/* <div className="">
-                  <h1 className="">Top Questions</h1>
-                </div> */}
+              <div className="activity">
+                <h1 className="">Recent Activities</h1>
                 <QuestionList
                   className="home-page"
                   items={loadedQns}
-                  sortType="Top"
+                  sortType="Newest"
                 />
               </div>
 
