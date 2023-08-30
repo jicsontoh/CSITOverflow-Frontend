@@ -25,6 +25,8 @@ import ListMaxIndentLevelPlugin from "./plugins/ListMaxIndentLevelPlugin";
 import CodeHighlightPlugin from "./plugins/CodeHighlightPlugin";
 import AutoLinkPlugin from "./plugins/AutoLinkPlugin";
 
+import "./Editor.css";
+
 const UpdatePlugin = ({ initialConfig }) => {
   const [editor] = useLexicalComposerContext();
 
@@ -42,6 +44,7 @@ const Viewer = ({ body }) => {
       <LexicalComposer
         initialConfig={{
           editorState: body,
+          editable: false,
           theme: ExampleTheme,
           onError(error) {
             console.log(error);
