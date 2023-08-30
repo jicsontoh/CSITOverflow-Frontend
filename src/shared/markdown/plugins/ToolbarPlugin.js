@@ -650,14 +650,14 @@ export default function ToolbarPlugin() {
           >
             <i className="format code" />
           </button>
-          {/* <button
+          <button
             type="button"
             onClick={insertLink}
             className={"toolbar-item spaced " + (isLink ? "active" : "")}
             aria-label="Insert Link"
           >
             <i className="format link" />
-          </button> */}
+          </button>
           {isLink &&
             createPortal(<FloatingLinkEditor editor={editor} />, document.body)}
           <Divider />
