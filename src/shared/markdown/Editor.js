@@ -28,10 +28,10 @@ import "./Editor.css";
 const editorConfig = {
   theme: ExampleTheme,
   // Handling of errors during update
-  onError(error) {
-    throw error;
-  },
   // Any custom nodes go here
+  onError(error) {
+    console.log(error);
+  },
   nodes: [
     HeadingNode,
     ListNode,
@@ -47,15 +47,6 @@ const editorConfig = {
   ],
 };
 
-// function onChange(editorState) {
-//   editorState.read(() => {
-//     // Read the contents of the EditorState here.
-//     const root = $getRoot();
-//     const selection = $getSelection();
-//     console.log((root, selection));
-//   });
-// }
-
 const EditorCapturePlugin = React.forwardRef((props, ref) => {
   const [editor] = useLexicalComposerContext();
   useEffect(() => {
@@ -67,6 +58,10 @@ const EditorCapturePlugin = React.forwardRef((props, ref) => {
 
   return null;
 });
+
+function onError(error) {
+  console.error(error);
+}
 
 export const Editor = React.forwardRef((props, ref) => {
   return (
