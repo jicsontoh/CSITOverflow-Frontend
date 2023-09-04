@@ -1,5 +1,5 @@
 # Build react client
-FROM node:10.16-alpine
+FROM node:20.5-alpine
 
 # Working directory be app
 WORKDIR /usr/src/app
@@ -16,3 +16,4 @@ COPY . .
 EXPOSE 3000
 
 CMD ["npm","start"]
+
