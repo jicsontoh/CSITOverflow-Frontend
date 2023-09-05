@@ -27,3 +27,11 @@ $ npm i
 ```
 $ npm start
 ```
+
+If you wish to Dockerise the application, you can apply the following command to create an image
+
+```
+$ docker build -t csit-overflow-frontend .
+```
+
+Do remember to set the env variables
