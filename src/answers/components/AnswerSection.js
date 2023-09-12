@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 // import { connect } from "react-redux";
 // import PropTypes from "prop-types";
 // import { getAnswers } from "../../../redux/answers/answers.actions";
@@ -22,17 +22,22 @@ const AnswerSection = (props) => {
   const qnsId = props.qns_id;
   //   const answers = props.answers;
 
+  const fetchAns = async () => {
+    try {
+      const responseData = await sendRequest(
+        process.env.REACT_APP_API_URL + `/api/answers/${qnsId}`
+      );
+      setLoadedAns(responseData.ans);
+    } catch (err) {}
+  };
+
   useEffect(() => {
-    const fetchAns = async () => {
-      try {
-        const responseData = await sendRequest(
-          process.env.REACT_APP_API_URL + `/api/answers/${qnsId}`
-        );
-        setLoadedAns(responseData.ans);
-      } catch (err) {}
-    };
     fetchAns();
   }, [sendRequest, qnsId]);
+
+  const postAnswerHandler = useCallback(() => {
+    fetchAns();
+  });
 
   return (
     <React.Fragment>
@@ -60,7 +65,9 @@ const AnswerSection = (props) => {
               <AnswerList items={loadedAns} sortType={sortType} />
             </React.Fragment>
           )}
-          <div className="add-answer">{<AnswerForm qnsId={qnsId} />}</div>
+          <div className="add-answer">
+            {<AnswerForm updateAnswer={postAnswerHandler} qnsId={qnsId} />}
+          </div>
         </div>
       )}
     </React.Fragment>

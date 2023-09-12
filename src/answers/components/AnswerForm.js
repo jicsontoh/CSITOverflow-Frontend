@@ -48,7 +48,8 @@ const AnswerForm = (props) => {
           Authorization: "Bearer " + auth.token,
         }
       );
-      history(0);
+
+      props.updateAnswer();
     } catch (err) {}
   };
 
