@@ -18,7 +18,7 @@ const QuestionList = (props) => {
     <div className="questions">
       {props.items.sort(handleSorting(props.sortType)).map((post) => (
         <PostItem
-          key={post.index}
+          key={post.id}
           id={post.id}
           title={post.title}
           body={post.body}

@@ -20,7 +20,6 @@ const AnswerSection = (props) => {
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
 
   const qnsId = props.qns_id;
-  //   const answers = props.answers;
 
   const fetchAns = async () => {
     try {
