@@ -156,7 +156,7 @@ const AuthPage = (props) => {
                   <button
                     id="M1"
                     type="button"
-                    className={avatar === "M1" && "clicked"}
+                    className={avatar === "M1" ? "clicked" : ""}
                     onClick={selectAvatar}
                   >
                     <img src={M1} alt="M1" height={100} width={100} />
@@ -164,7 +164,7 @@ const AuthPage = (props) => {
                   <button
                     id="M2"
                     type="button"
-                    className={avatar === "M2" && "clicked"}
+                    className={avatar === "M2" ? "clicked" : ""}
                     onClick={selectAvatar}
                   >
                     <img src={M2} alt="M2" height={100} width={100} />
@@ -172,7 +172,7 @@ const AuthPage = (props) => {
                   <button
                     id="M3"
                     type="button"
-                    className={avatar === "M3" && "clicked"}
+                    className={avatar === "M3" ? "clicked" : ""}
                     onClick={selectAvatar}
                   >
                     <img src={M3} alt="M3" height={100} width={100} />
@@ -180,7 +180,7 @@ const AuthPage = (props) => {
                   <button
                     id="M4"
                     type="button"
-                    className={avatar === "M4" && "clicked"}
+                    className={avatar === "M4" ? "clicked" : ""}
                     onClick={selectAvatar}
                   >
                     <img src={M4} alt="M4" height={100} width={100} />
@@ -190,7 +190,7 @@ const AuthPage = (props) => {
                   <button
                     id="F1"
                     type="button"
-                    className={avatar === "F1" && "clicked"}
+                    className={avatar === "F1" ? "clicked" : ""}
                     onClick={selectAvatar}
                   >
                     <img src={F1} alt="F1" height={100} width={100} />
@@ -198,7 +198,7 @@ const AuthPage = (props) => {
                   <button
                     id="F2"
                     type="button"
-                    className={avatar === "F2" && "clicked"}
+                    className={avatar === "F2" ? "clicked" : ""}
                     onClick={selectAvatar}
                   >
                     <img src={F2} alt="F2" height={100} width={100} />
@@ -206,7 +206,7 @@ const AuthPage = (props) => {
                   <button
                     id="F3"
                     type="button"
-                    className={avatar === "F3" && "clicked"}
+                    className={avatar === "F3" ? "clicked" : ""}
                     onClick={selectAvatar}
                   >
                     <img src={F3} alt="F3" height={100} width={100} />
@@ -214,7 +214,7 @@ const AuthPage = (props) => {
                   <button
                     id="F4"
                     type="button"
-                    className={avatar === "F4" && "clicked"}
+                    className={avatar === "F4" ? "clicked" : ""}
                     onClick={selectAvatar}
                   >
                     <img src={F4} alt="F4" height={100} width={100} />
