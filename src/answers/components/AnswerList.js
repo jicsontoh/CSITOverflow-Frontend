@@ -17,7 +17,7 @@ const AnswerList = (props) => {
   return (
     <React.Fragment>
       {props.items.sort(handleSorting(props.sortType)).map((a) => (
-        <div className="answers">
+        <div className="answers" key={a.id}>
           <AnswerItem answer={a} />
           <div className="answer-line"></div>
         </div>

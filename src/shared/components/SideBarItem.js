@@ -24,8 +24,8 @@ const SideBarItem = ({ link, icon, text, isHome }) => {
 
 const HomeItem = ({ link, text }) => (
   <NavLink
-    exact
-    activeClassName="active"
+    exact="true"
+    activeclassname="active"
     className="home-link nav-link"
     to={link}
   >
@@ -38,7 +38,7 @@ const HomeItem = ({ link, text }) => (
 );
 
 const DefaultItem = ({ link, icon, text }) => (
-  <NavLink activeClassName="active" className="icon-link nav-link" to={link}>
+  <NavLink activeclassname="active" className="icon-link nav-link" to={link}>
     <ListItem disablePadding>
       <ListItemButton className="menu-list-btn">
         <ListItemIcon className="menu-list-icon">{icon}</ListItemIcon>
