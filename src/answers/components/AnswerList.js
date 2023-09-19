@@ -13,7 +13,7 @@ const AnswerList = (props) => {
       </div>
     );
   }
-  console.log(props.sortType);
+
   return (
     <React.Fragment>
       {props.items.sort(handleSorting(props.sortType)).map((a) => (

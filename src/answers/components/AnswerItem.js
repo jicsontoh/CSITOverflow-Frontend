@@ -71,7 +71,9 @@ const AnswerItem = ({ answer }) => {
             <div className="vote-container">
               <button
                 className={
-                  loadedAns.up_votes.includes(auth.userId) && "button-selected"
+                  loadedAns.up_votes.includes(auth.userId)
+                    ? "button-selected"
+                    : ""
                 }
                 title="This answer is useful (click again to undo)"
                 onClick={() => vote("up")}
@@ -81,8 +83,9 @@ const AnswerItem = ({ answer }) => {
               <div className="vote-count fc-black-500">{votes}</div>
               <button
                 className={
-                  loadedAns.down_votes.includes(auth.userId) &&
-                  "button-selected"
+                  loadedAns.down_votes.includes(auth.userId)
+                    ? "button-selected"
+                    : ""
                 }
                 title="This answer is not useful (click again to undo)"
                 onClick={() => vote("down")}
