@@ -2,6 +2,7 @@ import React, { useContext, useState, useEffect } from "react";
 import moment from "moment";
 
 import { NavLink, useParams, useNavigate } from "react-router-dom";
+import { CopyToClipboard } from "react-copy-to-clipboard";
 import SideBar from "../../shared/components/SideBar";
 
 import { ReactComponent as UpVote } from "../../assets/ArrowUpLg.svg";
@@ -26,6 +27,7 @@ const QuestionItem = (props) => {
   const history = useNavigate();
 
   const [loadedQns, setLoadedQns] = useState();
+  const [url, setUrl] = useState();
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
 
   const [votes, setVotes] = useState(0);
@@ -33,6 +35,7 @@ const QuestionItem = (props) => {
   const qnsId = useParams().questionId;
 
   useEffect(() => {
+    setUrl(window.location.href);
     const fetchQns = async () => {
       try {
         const responseData = await sendRequest(
@@ -106,13 +109,13 @@ const QuestionItem = (props) => {
                 <time dateTime={moment(loadedQns.created_at).fromNow(true)}>
                   {moment(loadedQns.created_at).fromNow(true)} ago
                 </time>
-                <NavLink
+                <CopyToClipboard
                   className="post-links"
                   title="short permalink to this question"
-                  to="/"
+                  text={url}
                 >
                   <img src={share} className="share-icon" />
-                </NavLink>
+                </CopyToClipboard>
               </div>
             </div>
 
