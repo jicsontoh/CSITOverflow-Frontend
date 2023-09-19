@@ -16,6 +16,7 @@ import AnswerSection from "../../answers/components/AnswerSection";
 import LoadingSpinner from "../../shared/UIElements/LoadingSpinner";
 import ErrorModal from "../../shared/UIElements/ErrorModal";
 import { useHttpClient } from "../../shared/hooks/http-hook";
+import share from "../../assets/share-icon.png";
 import Viewer from "../../shared/markdown/Viewer";
 
 import "./QuestionItem.css";
@@ -101,10 +102,17 @@ const QuestionItem = (props) => {
 
             <div className="question-date fc-black-800 pl24">
               <div className="grid-cell">
-                <span className="fc-light">Asked </span>
+                <span className="fc-light special-spaced">Asked </span>
                 <time dateTime={moment(loadedQns.created_at).fromNow(true)}>
                   {moment(loadedQns.created_at).fromNow(true)} ago
                 </time>
+                <NavLink
+                  className="post-links"
+                  title="short permalink to this question"
+                  to="/"
+                >
+                  <img src={share} className="share-icon" />
+                </NavLink>
               </div>
             </div>
 

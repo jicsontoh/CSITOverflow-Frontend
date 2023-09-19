@@ -5,7 +5,6 @@
   .questions-page .questions-grid {
     display: flex;
     padding-left: 24px;
-    padding-bottom: 1%;
     height: min-content;
   }
   
@@ -118,16 +117,35 @@
     padding-top: 2px;
   }
   
-  .post-cell .post-actions .post-actions-extended .post-btns .post-menu .post-links {
-    padding: 0 4px 2px 4px;
-    color: #848d95;
+  .post-links {
+    margin: 0 3px 0 10px;
+    color: #0a7ee4;
     cursor: pointer;
     text-decoration: none;
-    font-size: 13px;
+    height: 25px;
+    display: inline-flex;
+    /* font-size: 13px;
+    height: auto; */
   }
   
-  .post-cell .post-actions .post-actions-extended .post-btns .post-menu .post-links:hover {
-    color: #cfd2d6;
+  .post-links:hover {
+    background-color: #858c94;
+    border-radius: 5px;
+  }
+
+  .share-icon {
+    height: 25px;
+    width: 25px;
+    ;
+  }
+
+  .grid-cell {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .special-spaced {
+    margin-right: 7px;
   }
   
   
