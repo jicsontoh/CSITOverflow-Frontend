@@ -26,6 +26,7 @@
   .questions {
     border-top: 1px solid #4a4e51;
     color: #e7e8eb;
+    padding-bottom: 10px;
   }
 
   .questions h1 {
