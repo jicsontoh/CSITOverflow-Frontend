@@ -78,7 +78,7 @@ const AuthPage = (props) => {
           process.env.REACT_APP_API_URL + "/api/users/login",
           "POST",
           JSON.stringify({
-            username: username,
+            username: username.trim(),
             password: password,
           }),
           {
@@ -93,7 +93,7 @@ const AuthPage = (props) => {
           process.env.REACT_APP_API_URL + "/api/users/signup",
           "POST",
           JSON.stringify({
-            username: username,
+            username: username.trim(),
             password: password,
             reenterpwd: reenterpwd,
             avatar: avatar,
